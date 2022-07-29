@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthPhoneController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,16 +17,22 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Home', [
         'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+        'canRegister' => Route::has('register')
     ]);
 });
+
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthPhoneController::class, 'create'])->name('login');
+    Route::post('login', [AuthPhoneController::class, 'store']);
+    Route::post('verification', [AuthPhoneController::class, 'verification'])->name('verification');
+});
+
+Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';
