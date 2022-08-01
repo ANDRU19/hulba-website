@@ -11,7 +11,7 @@ defineProps({
     <Head title="Welcome" />
 
 
-        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        <!-- <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="text-sm text-gray-700 underline">
                 Dashboard
             </Link>
@@ -25,7 +25,7 @@ defineProps({
                     Register
                 </Link>
             </template>
-        </div>
+        </div> -->
 
 
 <section id="header">

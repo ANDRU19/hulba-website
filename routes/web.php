@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthPhoneController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\VerifyProfileCustomer;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,6 +29,11 @@ Route::middleware('guest')->group(function () {
     Route::get('login', [AuthPhoneController::class, 'create'])->name('login');
     Route::post('login', [AuthPhoneController::class, 'store']);
     Route::post('verification', [AuthPhoneController::class, 'verification'])->name('verification');
+});
+
+Route::withoutMiddleware([VerifyProfileCustomer ::class])->group(function () {
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+    Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');

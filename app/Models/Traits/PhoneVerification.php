@@ -27,28 +27,21 @@ trait PhoneVerification
         return $this->save();
     }
 
-    public static function isUniquePhone(string $phone)
-    {
-        return !self::query()->where("phone", Str::phoneNumber($phone))->where("phone_verified", true)->count();
-    }
+    // public static function isUniquePhone(string $phone)
+    // {
+    //     return !self::query()->where("phone", Str::phoneNumber($phone))->where("phone_verified", true)->count();
+    // }
 
-    /**
-     * @return mixed
-     */
+
     public function hasVerifiedPhone()
     {
         return ! is_null($this->phone_verified_at);
     }
 
-    /**
-     * @param $phone
-     * @return bool
-     */
-    public function setVerifiedPhone($phone)
+
+    public function setVerifiedPhone()
     {
         $this->forceFill([
-            'phone' => $phone,
-            'phone_verified' => true,
             'phone_verified_at' => $this->freshTimestamp(),
         ]);
 
