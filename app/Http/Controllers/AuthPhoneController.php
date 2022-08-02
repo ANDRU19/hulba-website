@@ -36,10 +36,11 @@ class AuthPhoneController extends Controller
     {
         $customer = Customer::firstWhere('phone', $request->phone);
         if($customer->verification_code == $request->code){
+            $customer->setVirifiedPhone();
             Auth::guard('web')->login($customer);
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect('/dashboard');
     }
 
 

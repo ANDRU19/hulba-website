@@ -11,7 +11,8 @@ class Customer extends Authenticatable
     use HasFactory, PhoneVerification;
 
     protected $fillable = [
-        'fullname',
+        'name',
+        'surname',
         'phone',
         'verification_code',
         'phone_verified_at',
@@ -23,8 +24,23 @@ class Customer extends Authenticatable
     ];
 
     protected $casts = [
-        'phone_verified_at' => 'datetime'
+        'phone_verified_at' => 'datetime',
+        'social' => 'array'
        ];
+
+    protected $social = [
+        'instagram' => '',
+        'faceboock' => ''
+    ];
+
+    public function getSocialAttribute()
+    {
+        if($this->attributes['social']){
+            $social = json_decode($this->attributes['social'], true);
+            return array_merge($this->social,$social);
+        }
+        return $this->social;
+    }
 
        
 }
