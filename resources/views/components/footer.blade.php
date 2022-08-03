@@ -1,7 +1,7 @@
   <!-- ======================================== footer   html start======================================= -->
   <section id="footer">
     <div class="container-h">
-      <div class="gap-24"></div> 
+      <div class="gap-24"></div>
       <div class="row align-items-top pb-50">
         <div class="col-12 col-md-3 p-left-fix">
           <p class="footer-title"><b>Empresa</b></p>
@@ -29,7 +29,7 @@
           <div class="gap-16 mob-gap-8"></div>
           <p class="footer-menu-link"><a href=""><img src="img/app_store.png" alt=""></a></p>
           <div class="gap-8"></div>
-          <p class="footer-menu-link"><a href=""><img src="img/g_play.png" alt=""></a></p>        
+          <p class="footer-menu-link"><a href=""><img src="img/g_play.png" alt=""></a></p>
         </div>
       </div>
       <div class="gap-32"></div>
@@ -67,4 +67,3 @@
     </div>
     </div>
   </section>
-  

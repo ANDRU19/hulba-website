@@ -38,7 +38,7 @@
           <div class="block-column" style="max-width:565px; margin-left: -15px;">
             <div class="HIW-block p-fix1" id="im1">
               <div class="HIW-icon">
-                <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" src="img/ico1.png">         
+                <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" src="img/ico1.png">
                 <p class="HIW-icon-text">COMUNIDADE</p>
               </div>
               <div class="gap-16"></div>
@@ -133,7 +133,7 @@
         </div>
         </div>
 
-        <div class="gap-64 mob-gap-8"></div>  
+        <div class="gap-64 mob-gap-8"></div>
     </section>
 
 
@@ -147,15 +147,15 @@
               <p class="big-text"><b><span>Gerenciar o seu produto, e os grupos no WhatsApp ou Telegram não é seu trabalho.</span>
                 <span style="background-color:#d8ff5f;border-radius:8px;padding:0 4px;white-space:nowrap">É o nosso.</span></b></p>
             </div>
-          </div>          
-        </div>  
-        <div class="gap-64"></div>  
-      </div>  
+          </div>
+        </div>
+        <div class="gap-64"></div>
+      </div>
   </section>
 
   <section id="promo-block" class="bg_white">
     <div class="container-h">
-      <div class="gap-64"></div> 
+      <div class="gap-64"></div>
         <div class="row bg_white">
           <div class="col-12 col-md-6 d-flex align-items-top justify-content-center p-left-fix">
             <div class="col-md-12 p-left-fix">
@@ -175,9 +175,9 @@
               <div class="gap-8"></div>
               <p class="promo-text">Dê mais flexibilidade ao seu produto, com pagamentos por pix, cartão de crédito ou boleto bancário.</p>
               <div class="gap-38"></div>
-            </div>  
-          </div>       
-        </div> 
+            </div>
+          </div>
+        </div>
         <div class="row bg_white">
           <div class="col-12 col-md-6 d-flex align-items-top justify-content-center p-left-fix">
             <div class="col-md-12 p-left-fix">
@@ -186,7 +186,7 @@
               <p class="promo-text-title"><b>Acompanhe suas vendas em tempo real</b></p>
               <div class="gap-8"></div>
               <p class="promo-text">Consulte suas vendas, assinaturas e afiliados a qualquer momento pelo desktop ou no app Hubla.</p>
-              <div class="gap-38"></div>              
+              <div class="gap-38"></div>
             </div>
           </div>
           <div class="col-12 col-md-6 d-flex align-items-top justify-content-center p-right-fix">
@@ -196,10 +196,10 @@
               <p class="promo-text-title"><b>Venda mais com nossas ferramentas de marketing</b></p>
               <div class="gap-8"></div>
               <p class="promo-text">Use nossos construtores de páginas, sistema de afiliados e integrações com Facebook, Zapier, E-notas e muito mais.</p>
-              <div class="gap-38"></div>                
-            </div>  
+              <div class="gap-38"></div>
+            </div>
           </div>
-        </div> 
+        </div>
         <div class="row bg_white">
           <div class="col d-flex align-items-top justify-content-center" style="max-width:1150px;margin:auto">
             <div class="col-md-12">
@@ -208,16 +208,16 @@
               <p class="promo-text-title"><b>Faça sua captação de leads direto na Hubla</b><span class="new">NOVO</span></p>
               <div class="gap-8"></div>
               <p class="promo-text">Use nossa ferramenta de lista de espera e tenha acesso ao nome, telefone e e-mail do seus leads, diretamente na Hubla.</p>
-              <div class="gap-38 d-none d-lg-block"></div> 
+              <div class="gap-38 d-none d-lg-block"></div>
               </div>
           </div>
         </div>
         <div class="gap-64"></div>
-    </div>    
+    </div>
   </section>
   <section id="card" class="bg_green">
     <div class="container-h">
-        <div class="gap-64 mob-gap-30"></div> 
+        <div class="gap-64 mob-gap-30"></div>
         <div class="row">
           <div class="col-12 col-md-6 d-flex align-items-center justify-content-left p-left-fix">
             <div>
@@ -238,7 +238,7 @@
   </section>
 
   <section id="big-card" class="bg_green">
-      <div class="container-h"> 
+      <div class="container-h">
         <div class="row">
           <div class="col d-flex align-items-center justify-content-center p-leftright-fix">
             <div class="big-card">
@@ -255,7 +255,7 @@
             </div>
           </div>
         </div>
-        <div class="gap-64 mob-gap-30"></div> 
+        <div class="gap-64 mob-gap-30"></div>
       </div>
   </section>
 

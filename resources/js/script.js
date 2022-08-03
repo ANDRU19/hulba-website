@@ -1,3 +1,6 @@
+import '../site/js/form-validation';
+import '../site/js/dashboard';
+
 $(function () {
   ///////////////////////////menu/////////////////////////////////
 
