@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthPhoneController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\VerifyProfileCustomer;
 use Illuminate\Foundation\Application;
@@ -48,5 +50,8 @@ Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('category', CategoryController::class);
+Route::resource('product', ProductController::class);
 
 //require __DIR__.'/auth.php';

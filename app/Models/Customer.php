@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Traits\PhoneVerification;
+use App\Models\Traits\UploadFiles;
 
 class Customer extends Authenticatable
 {
-    use HasFactory, PhoneVerification;
+    use HasFactory, UploadFiles, PhoneVerification;
 
     protected $fillable = [
         'name',

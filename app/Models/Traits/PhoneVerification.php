@@ -42,7 +42,7 @@ trait PhoneVerification
     public function setVerifiedPhone()
     {
         $this->forceFill([
-            'phone_verified_at' => $this->freshTimestamp(),
+            'phone_verified_at' => $this->freshTimestamp()
         ]);
 
         return $this->save();

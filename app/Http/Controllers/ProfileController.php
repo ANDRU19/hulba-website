@@ -27,14 +27,14 @@ class ProfileController extends Controller
             'description' => 'nullable',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
-
-        $photo_path = '';
-        if ($request->hasFile('photo')) { 
-            $photo_path = $request->file('photo')->store('photo', 'public');
-            $valid_customer['photo'] = $photo_path;
-        }
+       
         $customer = Customer::find(auth()->user()->id);
         $customer->update($valid_customer);
+        if ($request->hasFile('photo')) {
+            $customer->photoSave($request->file('photo'));
+        }
+
+        return redirect('/dashboard');
     }
 
 }
