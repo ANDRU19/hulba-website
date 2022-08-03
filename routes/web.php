@@ -19,6 +19,11 @@ use Inertia\Inertia;
 */
 
 
+//frontend Routes 
+
+
+Route::view('/', 'frontend.home');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthPhoneController::class, 'create'])->name('login');
@@ -29,12 +34,12 @@ Route::middleware('guest')->group(function () {
 Route::withoutMiddleware([VerifyProfileCustomer ::class])->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
     Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/', function () {
-        return Inertia::render('Home', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register')
-        ]);
-    });
+//     Route::get('/', function () {
+//         return Inertia::render('Home', [
+//             'canLogin' => Route::has('login'),
+//             'canRegister' => Route::has('register')
+//         ]);
+//     });
 });
 
 Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
