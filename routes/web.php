@@ -27,7 +27,7 @@ Route::view('/', 'frontend.home');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthPhoneController::class, 'create'])->name('login');
-    Route::post('login', [AuthPhoneController::class, 'store']);
+    Route::post('login', [AuthPhoneController::class, 'store'])->name('verify.phone');;
     Route::post('verification', [AuthPhoneController::class, 'verification'])->name('verification');
 });
 
