@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
+@import "../site/css/form-validation.css";
+@import "../site/css/dashboard.css";
+
 @font-face {
     font-family: Satoshi;
     src: url(../fonts/Satoshi-Regular.otf);
