@@ -19,10 +19,11 @@ use Inertia\Inertia;
 */
 
 
-//frontend Routes 
+//frontend Routes
 
 
 Route::view('/', 'frontend.home');
+Route::get('products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products');
 
 
 Route::middleware('guest')->group(function () {
