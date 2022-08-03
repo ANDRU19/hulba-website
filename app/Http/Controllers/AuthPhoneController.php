@@ -36,7 +36,7 @@ class AuthPhoneController extends Controller
     {
         $customer = Customer::firstWhere('phone', $request->phone);
         if($customer->verification_code == $request->code){
-            $customer->setVirifiedPhone();
+            $customer->setVerifiedPhone();
             Auth::guard('web')->login($customer);
         }
 
