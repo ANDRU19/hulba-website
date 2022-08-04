@@ -2,15 +2,17 @@ ARG PHP_VERSION=${PHP_VERSION:-8.1.9RC1}
 FROM php:${PHP_VERSION}-fpm-alpine AS php-system-setup
 
 
-COPY ["package.json", "package-lock.json*", "./"]
-
-RUN npm install
-RUN npm run build
 
 
 # Install system dependencies
 RUN apk add --no-cache dcron busybox-suid libcap curl zip unzip git
 RUN  apk add --update nodejs npm
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install
+RUN npm run build
+
 # Install PHP extensions
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 RUN install-php-extensions intl bcmath gd pdo_mysql pdo_pgsql opcache redis uuid exif pcntl zip
