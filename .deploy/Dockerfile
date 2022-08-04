@@ -97,6 +97,6 @@ ENTRYPOINT ["sh", "/entrypoint.sh"]
 
 
 COPY package.json package-lock.json ./
-RUN npm cache clean
+RUN npm cache verify
 RUN npm install
 RUN npm run build
