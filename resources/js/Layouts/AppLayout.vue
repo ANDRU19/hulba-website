@@ -133,7 +133,8 @@ import Logo from './Partials/Logo.vue';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Products', href: '#', icon: UsersIcon, current: false },
+  { name: 'Products', href: '/product', icon: UsersIcon, current: false },
+  { name: 'Categories', href: '/category', icon: FolderIcon, current: false },
   { name: 'Sales', href: '#', icon: FolderIcon, current: false },
   { name: 'Coupons', href: '#', icon: CalendarIcon, current: false },
   { name: 'Affiliates', href: '#', icon: InboxIcon, current: false },

@@ -43,6 +43,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('category', CategoryController::class);
-Route::resource('product', ProductController::class);
+Route::resource('product', ProductController::class)->except(['update']);
+Route::post('product/{product}', [ProductController::class, 'update'])->name('product.update');
 
 //require __DIR__.'/auth.php';

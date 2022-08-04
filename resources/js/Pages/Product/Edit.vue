@@ -1,7 +1,7 @@
 <template>
     <Head title="PS connection" />
 
-    <BreezeAuthenticatedLayout>
+    <AppLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 Edit
@@ -121,16 +121,16 @@
                 </div>
             </div>
         </div>
-    </BreezeAuthenticatedLayout>
+    </AppLayout>
 </template>
 
 <script>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
-        BreezeAuthenticatedLayout,
+        AppLayout,
         Head,
     },
     setup(props) {
@@ -158,7 +158,7 @@ export default {
             if (this.$refs.image) {
                 this.form.image = this.$refs.image.files[0];
             }
-            this.form.put(route("product.update", this.product.id));
+            this.form.post(route("product.update", this.product.id));
         },
         previewImage(e) {
             const file = e.target.files[0];

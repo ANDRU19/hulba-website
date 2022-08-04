@@ -62,9 +62,17 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $data = $request->validate([
-                'name' => ['required', 'max:90']
+            'title' => 'required',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'description' => 'required',
+            'category_id' => 'required|int'
             ]);
-            $product->update($data);
+
+            $product->update($data); 
+
+            if ($request->hasFile('image')) {
+                $product->imageSave($request->file('image'));
+            }
 
         return Redirect::route('product.index');
     }

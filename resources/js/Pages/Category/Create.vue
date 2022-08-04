@@ -1,7 +1,7 @@
 <template>
     <Head title="Dashboard" />
 
-    <BreezeAuthenticatedLayout>
+    <AppLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 Create
@@ -51,17 +51,16 @@
                 </div>
             </div>
         </div>
-    </BreezeAuthenticatedLayout>
+    </AppLayout>
 </template>
 
 <script>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-//import BreezeLabel from "@/Components/Label";
+import AppLayout from "@/Layouts/AppLayout.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
-        BreezeAuthenticatedLayout,
+        AppLayout,
         Head,
     },
     setup() {

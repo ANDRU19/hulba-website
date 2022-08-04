@@ -1,7 +1,7 @@
 <template>
     <Head title="Dashboard" />
 
-    <BreezeAuthenticatedLayout>
+    <AppLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 Categories
@@ -58,20 +58,20 @@
                 </div>
             </div>
         </div>
-    </BreezeAuthenticatedLayout>
+    </AppLayout>
 </template>
 
 <script>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import BreezeNavLink from "@/Components/NavLink.vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { Link } from "@inertiajs/inertia-vue3";
+import Pagination from '@/Layouts/Partials/Pagination.vue'
 export default {
     components: {
-        BreezeAuthenticatedLayout,
-        Head,
-        BreezeNavLink,
-        Link,
+		AppLayout,
+        Pagination,
+		Head,
+        Link
     },
     props: {
         categories: Object,
