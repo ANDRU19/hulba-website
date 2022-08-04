@@ -2,6 +2,12 @@ ARG PHP_VERSION=${PHP_VERSION:-8.1.9RC1}
 FROM php:${PHP_VERSION}-fpm-alpine AS php-system-setup
 
 
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install
+RUN npm run build
+
+
 # Install system dependencies
 RUN apk add --no-cache dcron busybox-suid libcap curl zip unzip git
 RUN  apk add --update nodejs npm
@@ -94,10 +100,3 @@ EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
-
-
-COPY ["package.json", "package-lock.json*", "./"]
-
-
-RUN npm install
-RUN npm run build
