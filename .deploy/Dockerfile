@@ -96,7 +96,6 @@ COPY ./.deploy/entrypoint.sh /
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 
 
-FROM node:10.9 
 COPY package.json package-lock.json ./
 RUN npm install
 RUN npm run build
