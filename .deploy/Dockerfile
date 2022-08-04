@@ -56,9 +56,11 @@ COPY --chown=$NON_ROOT_USER:$NON_ROOT_GROUP . $LARAVEL_PATH/
 COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
 USER $ROOT_USER
+
 RUN npm install
 RUN npm run build
 
+USER $NON_ROOT_USER
 
 # Set any ENVs
 ARG APP_KEY=${APP_KEY}
