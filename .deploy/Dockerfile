@@ -3,7 +3,7 @@ FROM php:${PHP_VERSION}-fpm-alpine AS php-system-setup
 
 
 # Install system dependencies
-RUN apk add --no-cache dcron busybox-suid libcap curl zip unzip git npm
+RUN apk add --no-cache dcron busybox-suid libcap curl zip unzip git
 
 # Install PHP extensions
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
