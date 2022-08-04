@@ -1,8 +1,9 @@
 ARG PHP_VERSION=${PHP_VERSION:-8.1.9RC1}
 FROM php:${PHP_VERSION}-fpm-alpine AS php-system-setup
-FROM node:10.9
 
 
+# Install system dependencies
+RUN apk add --no-cache dcron busybox-suid libcap curl zip unzip git npm
 
 # Install PHP extensions
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
@@ -41,8 +42,7 @@ RUN chown -R $NON_ROOT_USER:$NON_ROOT_GROUP $LARAVEL_PATH
 USER $NON_ROOT_USER
 RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
 RUN rm -rf /home/$NON_ROOT_USER/.composer
-RUN npm install
-RUN npm run build
+
 
 # Copy app
 COPY --chown=$NON_ROOT_USER:$NON_ROOT_GROUP . $LARAVEL_PATH/
@@ -94,3 +94,8 @@ EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
+
+
+FROM node:10.9 
+RUN npm install
+RUN npm run build
