@@ -95,8 +95,9 @@ COPY ./.deploy/entrypoint.sh /
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 
-USER nonroot
-COPY package.json package-lock.json ./
-RUN npm cache verify
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+
 RUN npm install
 RUN npm run build
