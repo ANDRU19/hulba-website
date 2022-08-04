@@ -10,8 +10,7 @@ RUN  apk add --update nodejs npm
 
 COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm install
-RUN npm run build
+
 
 # Install PHP extensions
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
@@ -55,6 +54,11 @@ RUN rm -rf /home/$NON_ROOT_USER/.composer
 # Copy app
 COPY --chown=$NON_ROOT_USER:$NON_ROOT_GROUP . $LARAVEL_PATH/
 COPY ./.deploy/config/php/local.ini /usr/local/etc/php/conf.d/local.ini
+
+USER $ROOT_USER
+RUN npm install
+RUN npm run build
+
 
 # Set any ENVs
 ARG APP_KEY=${APP_KEY}
