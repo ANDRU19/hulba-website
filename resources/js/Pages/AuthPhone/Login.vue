@@ -3,6 +3,7 @@
 	import BreezeInput from "@/Components/Input.vue";
 	import BreezeLabel from "@/Components/Label.vue";
 	import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+	import InputError from "@/Components/InputError.vue";
 	import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 	import Logo from "@/Layouts/Partials/Logo.vue";
 
@@ -18,7 +19,6 @@
 
 <template>
 	<Head title="Log in" />
-	<BreezeValidationErrors class="mb-4" />
 	<div class="grid grid-cols-2">
 		<div class="col-span-1 px-14 pb-5 bg-[#f3f3f3]">
 			<div class="mt-10 mb-20">
@@ -43,6 +43,7 @@
 						<div>
 							<BreezeLabel for="phone" value="Insira seu número para entrar" />
 							<BreezeInput id="phone" placeholder="Insira seu número" type="phone" class="rounded placeholder-[#dedede] px-3 font-light py-2 border border-[#dedede] mt-1 block w-full" v-model="form.phone" required autofocus autocomplete="phone" />
+							<InputError :message="form.errors.phone"></InputError>
 						</div>
 
 						<div class="flex items-center mt-10">

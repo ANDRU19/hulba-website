@@ -26,7 +26,14 @@ class AuthPhoneController extends Controller
 
         $customer = Customer::firstOrCreate($phone);
         $customer->updatingCode();
-        $sms->send($customer->phone, $customer->verification_code);
+        try {
+                $sms->send($customer->phone, $customer->verification_code);
+            } catch(\Exception $e) {
+               return redirect()->back()->withErrors([
+                  'phone' => explode(":", $e->getMessage())[1]
+               ]);
+            }
+        
 
         return Inertia::render('AuthPhone/Verification', $phone);
     }
