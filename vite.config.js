@@ -11,7 +11,11 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: 'resources/js/app.js',
+            input: [
+                'resources/js/app.js',
+                'resources/js/script.js',
+                'resources/css/style.css',
+            ],
             refresh: true,
         }),
         vue({
