@@ -21,9 +21,6 @@ use Inertia\Inertia;
 */
 
 
-Route::get('products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products');
-
-
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthPhoneController::class, 'create'])->name('login');
     Route::post('login', [AuthPhoneController::class, 'store'])->name('verify.phone');;
@@ -36,14 +33,15 @@ Route::withoutMiddleware([VerifyProfileCustomer ::class])->group(function () {
     Route::view('/', 'frontend.home');
 });
 
-Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::resource('category', CategoryController::class);
+    
+    Route::resource('product', ProductController::class)->except(['update']);
+    Route::post('product/{product}', [ProductController::class, 'update'])->name('product.update');
 
-Route::resource('category', CategoryController::class);
-Route::resource('product', ProductController::class)->except(['update']);
-Route::post('product/{product}', [ProductController::class, 'update'])->name('product.update');
-
-//require __DIR__.'/auth.php';
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+});
