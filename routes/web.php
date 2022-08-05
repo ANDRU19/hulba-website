@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthPhoneController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\VerifyProfileCustomer;
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('product', ProductController::class)->except(['update']);
     Route::post('product/{product}', [ProductController::class, 'update'])->name('product.update');
+
+    Route::get('payments', [PaymentController::class, 'index'])->name('payments');
 
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');

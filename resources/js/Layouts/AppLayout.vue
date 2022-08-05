@@ -64,7 +64,7 @@
 
         <div class="flex-1 px-4 flex justify-between">
           <div class="flex-1 flex">
-           
+            <a :href="route('payments')" class="btn btn-transperent f-s-8 mr-3 ">My products</a>
           </div>
           <div class="ml-4 flex items-center md:ml-6">
         
@@ -72,6 +72,7 @@
             <Menu as="div" class="ml-3 relative">
               <div>
                 <MenuButton class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <div class="nav-user-info">hello {{$page.props.auth.user.name}}</div>
                   <span class="sr-only">Open user menu</span>
                   <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                 </MenuButton>
@@ -149,3 +150,9 @@ const userNavigation = [
 
 const sidebarOpen = ref(false)
 </script>
+
+<style scoped>
+.nav-user-info{
+    padding-right: 10px;
+  }
+</style>
