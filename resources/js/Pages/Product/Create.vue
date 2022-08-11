@@ -101,19 +101,22 @@
                                     </option>
                                 </select>
                             </div>
+                            
+                            <PaymentType></PaymentType>
 
                             <!-- submit -->
                             <div class="flex items-center mt-4">
                                 <button
                                     class="
+                                        w-full
                                         px-6
                                         py-2
                                         text-white
-                                        bg-gray-900
+                                        bg-gray-400
                                         rounded
                                     "
                                 >
-                                    Save
+                                    Create
                                 </button>
                             </div>
                         </form>
@@ -126,11 +129,13 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
+import PaymentType from "@/Pages/Payment/Type.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         AppLayout,
+        PaymentType,
         Head,
     },
     props: {
