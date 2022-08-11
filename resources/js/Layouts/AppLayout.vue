@@ -63,7 +63,7 @@
         </button>
 
         <div class="flex-1 px-4 flex justify-between">
-          <div class="flex-1 flex">
+          <div class="flex-1 flex justify-end items-center">
             <a :href="route('payments')" class="btn btn-transperent f-s-8 mr-3 ">My products</a>
           </div>
           <div class="ml-4 flex items-center md:ml-6">

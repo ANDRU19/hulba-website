@@ -101,19 +101,22 @@
                                     </option>
                                 </select>
                             </div>
+                            
+                            <PaymentType :data="payment_type"></PaymentType>
 
                             <!-- submit -->
                             <div class="flex items-center mt-4">
                                 <button
                                     class="
+                                        w-full
                                         px-6
                                         py-2
                                         text-white
-                                        bg-gray-900
+                                        bg-gray-400
                                         rounded
                                     "
                                 >
-                                    Save
+                                    Create
                                 </button>
                             </div>
                         </form>
@@ -126,30 +129,45 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
+import PaymentType from "@/Pages/Payment/Type.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         AppLayout,
+        PaymentType,
         Head,
     },
     props: {
         categories: Object,
         errors: Object
     },
+
     setup() {
         const form = useForm({
             title: null,
             image: null,
             description: null,
             category_id: null,
+            payment: {
+                plan: '',
+                price: 0,
+                monthly: 0,
+                days: 0
+            }
         });
 
         return { form };
     },
     data() {
         return {
-        url: null,
+            url: null,
+            payment_type: {
+                plan: '',
+                price: 0,
+                monthly: 0,
+                days: 0
+            }
         }
     },
     methods: {
@@ -157,9 +175,13 @@ export default {
             if (this.$refs.image) {
                 this.form.image = this.$refs.image.files[0];
             }
+            this.form.payment.plan = this.payment_type.plan;
+            this.form.payment.price = this.payment_type.price;
+            this.form.payment.monthly = this.payment_type.monthly;
+            this.form.payment.days = this.payment_type.days;
+
             this.form.post(route("product.store"));
         },
-
         previewImage(e) {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);
