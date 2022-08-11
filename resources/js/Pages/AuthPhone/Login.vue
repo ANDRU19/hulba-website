@@ -41,7 +41,8 @@
 					<form @submit.prevent="submit">
 						<div>
 							<BreezeLabel for="phone" value="Insira seu número para entrar" />
-							<PhoneNumberInput placeholder="Insira seu número" v-model="form.phone" required></PhoneNumberInput>
+							<!-- <PhoneNumberInput placeholder="Insira seu número" v-model="form.phone" required></PhoneNumberInput> -->
+							<input type="text" placeholder="Insira seu número" v-model="form.phone"/>
 							<InputError :message="form.errors.phone"></InputError>
 						</div>
 
