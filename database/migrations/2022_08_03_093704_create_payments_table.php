@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('plan');
-            $table->string('summ');
+            $table->decimal('price', 9, 2);
+            $table->string('monthly');
             $table->string('days');
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('product_id')->constrained();

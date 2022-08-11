@@ -40,6 +40,13 @@ class ProductController extends Controller
             $product->imageSave($request->file('image'));
         }
 
+        $product->payment()->create([
+            'plan' => $request->payment['plan'],
+            'price' => $request->payment['price'],
+            'monthly' => $request->payment['monthly'],
+            'days' => $request->payment['days']
+        ]);
+
         return  Redirect::route('product.index');
     }
 

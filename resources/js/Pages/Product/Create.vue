@@ -102,7 +102,7 @@
                                 </select>
                             </div>
                             
-                            <PaymentType></PaymentType>
+                            <PaymentType :data="payment_type"></PaymentType>
 
                             <!-- submit -->
                             <div class="flex items-center mt-4">
@@ -142,19 +142,32 @@ export default {
         categories: Object,
         errors: Object
     },
+
     setup() {
         const form = useForm({
             title: null,
             image: null,
             description: null,
             category_id: null,
+            payment: {
+                plan: '',
+                price: 0,
+                monthly: 0,
+                days: 0
+            }
         });
 
         return { form };
     },
     data() {
         return {
-        url: null,
+            url: null,
+            payment_type: {
+                plan: '',
+                price: 0,
+                monthly: 0,
+                days: 0
+            }
         }
     },
     methods: {
@@ -162,9 +175,13 @@ export default {
             if (this.$refs.image) {
                 this.form.image = this.$refs.image.files[0];
             }
+            this.form.payment.plan = this.payment_type.plan;
+            this.form.payment.price = this.payment_type.price;
+            this.form.payment.monthly = this.payment_type.monthly;
+            this.form.payment.days = this.payment_type.days;
+
             this.form.post(route("product.store"));
         },
-
         previewImage(e) {
             const file = e.target.files[0];
             this.url = URL.createObjectURL(file);

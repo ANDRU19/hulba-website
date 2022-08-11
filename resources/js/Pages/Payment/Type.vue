@@ -7,7 +7,13 @@
         id="one-time-payment"
         class="mr-3"
         :checked="one_time_payment"
-        @change="one_time_payment = true; signature = false; monthly=false; quartery=false; semestral=false; annual=false"
+        @change="data.plan = 'one-time-payment';
+                one_time_payment = true; 
+                signature = false; 
+                monthlyplan = false; 
+                quartery = false; 
+                semestral = false; 
+                annual =false"
       />
       <label class="font-bold" for="one-time-payment">One-time payment</label>
     </div>
@@ -16,6 +22,7 @@
         <label>Price</label>
         <input
           type="text"
+          v-model="data.price"
           class="
             w-full
             px-4
@@ -46,17 +53,22 @@
       <div class="border border-gray-400 rounded-md p-2 mt-5">
         <input
           type="radio"
-          id="monthly"
+          id="monthlyplan"
           class="mr-3"
-          :checked="monthly"
-          @change="monthly = true; quartery=false; semestral=false; annual=false"
+          :checked="monthlyplan"
+          @change="data.plan = 'monthly';
+                  monthlyplan = true; 
+                  quartery = false; 
+                  semestral = false; 
+                  annual = false"
         />
-        <label class="font-bold" for="monthly">Monthly plan</label>
-        <div v-if="monthly">
+        <label class="font-bold" for="monthlyplan">Monthly plan</label>
+        <div v-if="monthlyplan">
           <div class="mt-4">
             <label>Total</label>
             <input
               type="text"
+              v-model="data.price"
               class="
                 w-full
                 px-4
@@ -71,6 +83,7 @@
           <div>
             <label>Number of grace days</label>
             <select
+              v-model="data.days"
               class="
                 w-full
                 px-4
@@ -81,7 +94,7 @@
                 focus:outline-none focus:ring-1 focus:ring-blue-600
               "
             >
-              <option value="">disabled</option>
+              <option value="0">disabled</option>
               <option value="1">1</option>
               <option value="3">3</option>
               <option value="7">7</option>
@@ -101,13 +114,18 @@
           id="quartery"
           class="mr-3"
           :checked="quartery"
-          @change="quartery = true; monthly=false; semestral=false; annual=false"
+          @change="data.plan = 'quartery';
+                  quartery = true; 
+                  monthlyplan = false; 
+                  semestral = false; 
+                  annual = false"
         />
         <label class="font-bold" for="quartery">Quartery plan</label>
         <div v-if="quartery">
           <div class="mt-4">
             <label>Monthly</label>
             <input
+              v-model="data.monthly"
               type="text"
               class="
                 w-full
@@ -124,6 +142,7 @@
             <label>Total</label>
             <input
               type="text"
+              v-model="data.price"
               class="
                 w-full
                 px-4
@@ -138,6 +157,7 @@
           <div>
             <label>Number of grace days</label>
             <select
+              v-model="data.days"
               class="
                 w-full
                 px-4
@@ -148,7 +168,7 @@
                 focus:outline-none focus:ring-1 focus:ring-blue-600
               "
             >
-              <option value="">disabled</option>
+              <option value="0">disabled</option>
               <option value="1">1</option>
               <option value="3">3</option>
               <option value="7">7</option>
@@ -168,13 +188,18 @@
           id="semestral"
           class="mr-3"
           :checked="semestral"
-          @change="semestral = true; quartery=false; monthly=false; annual=false"
+          @change="data.plan = 'semestral';
+                  semestral = true; 
+                  quartery = false; 
+                  monthlyplan = false; 
+                  annual = false"
         />
         <label class="font-bold" for="semestral">Semestral plan</label>
         <div v-if="semestral">
           <div class="mt-4">
             <label>Monthly</label>
             <input
+              v-model="data.monthly"
               type="text"
               class="
                 w-full
@@ -191,6 +216,7 @@
             <label>Total</label>
             <input
               type="text"
+              v-model="data.price"
               class="
                 w-full
                 px-4
@@ -205,6 +231,7 @@
           <div>
             <label>Number of grace days</label>
             <select
+              v-model="data.days"
               class="
                 w-full
                 px-4
@@ -215,7 +242,7 @@
                 focus:outline-none focus:ring-1 focus:ring-blue-600
               "
             >
-              <option value="">disabled</option>
+              <option value="0">disabled</option>
               <option value="1">1</option>
               <option value="3">3</option>
               <option value="7">7</option>
@@ -235,7 +262,11 @@
           id="annual"
           class="mr-3"
           :checked="annual"
-          @change="annual = true; semestral=false; monthly=false; quartery=false"
+          @change="data.plan = 'annual';
+                  annual = true; 
+                  semestral=false; 
+                  monthlyplan=false; 
+                  quartery=false"
         />
         <label class="font-bold" for="annual">Annual plan</label>
         <div v-if="annual">
@@ -243,6 +274,7 @@
             <label>Monthly</label>
             <input
               type="text"
+              v-model="data.monthly"
               class="
                 w-full
                 px-4
@@ -258,6 +290,7 @@
             <label>Total</label>
             <input
               type="text"
+              v-model="data.price"
               class="
                 w-full
                 px-4
@@ -272,6 +305,7 @@
           <div>
             <label>Number of grace days</label>
             <select
+              v-model="data.days"
               class="
                 w-full
                 px-4
@@ -282,7 +316,7 @@
                 focus:outline-none focus:ring-1 focus:ring-blue-600
               "
             >
-              <option value="">disabled</option>
+              <option value="0">disabled</option>
               <option value="1">1</option>
               <option value="3">3</option>
               <option value="7">7</option>
@@ -299,29 +333,21 @@
 </template>
 
 <script>
+ 
 export default {
+
+  props: {
+    data: Object
+  },
   data() {
     return {
-      monthly: false,
+      monthlyplan: false,
       quartery: false,
       semestral: false,
       annual: false,
       signature: false,
       one_time_payment: false,
     };
-  },
-  methods: {
-    submit() {
-      if (this.$refs.image) {
-        this.form.image = this.$refs.image.files[0];
-      }
-      this.form.post(route("product.store"));
-    },
-
-    previewImage(e) {
-      const file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
-    },
-  },
+  }
 };
 </script>

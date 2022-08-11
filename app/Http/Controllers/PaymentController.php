@@ -10,7 +10,10 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $payments = Payment::with(['products'])->where('customer_id', auth()->user()->id)->latest()->paginate(10);
+        $payments = Payment::with(['product', 'product.image'])
+                        ->where('customer_id', auth()->user()->id)
+                        ->latest()
+                        ->paginate(10);
         return Inertia::render('Payment/Index', ['payments' => $payments]);
     }
 }
