@@ -2,25 +2,24 @@
 	import BreezeButton from "@/Components/Button.vue";
 	import BreezeInput from "@/Components/Input.vue";
 	import BreezeLabel from "@/Components/Label.vue";
-	import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
 	import InputError from "@/Components/InputError.vue";
 	import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 	import Logo from "@/Layouts/Partials/Logo.vue";
+	import PhoneNumberInput from "@/Components/PhoneNumberInput.vue";
 
 	const form = useForm({
 		phone: "",
 	});
 
 	const submit = () => {
-		form.post(route("login"), {
-		});
+		form.post(route("login"), {});
 	};
 </script>
 
 <template>
 	<Head title="Log in" />
 	<div class="grid grid-cols-2">
-		<div class="col-span-1 px-14 pb-5 bg-[#f3f3f3]">
+		<div class="col-span-1 px-14 pb-5 bg-[#f3f3f3] h-full">
 			<div class="mt-10 mb-20">
 				<Logo></Logo>
 			</div>
@@ -42,7 +41,7 @@
 					<form @submit.prevent="submit">
 						<div>
 							<BreezeLabel for="phone" value="Insira seu número para entrar" />
-							<BreezeInput id="phone" placeholder="Insira seu número" type="phone" class="rounded placeholder-[#dedede] px-3 font-light py-2 border border-[#dedede] mt-1 block w-full" v-model="form.phone" required autofocus autocomplete="phone" />
+							<PhoneNumberInput placeholder="Insira seu número" v-model="form.phone" required></PhoneNumberInput>
 							<InputError :message="form.errors.phone"></InputError>
 						</div>
 
@@ -50,9 +49,8 @@
 							<BreezeButton class="py-3 inline-flex items-center place-content-center w-full border border-[#dedede] hover:border-[#838383] text-md text-[#767676]" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Receber código por SMS </BreezeButton>
 						</div>
 					</form>
-                    
+
 					<div class="absolute bottom-10 text-xs text-center text-[#919191] font-extralight">Ao iniciar a sessão, você aceita e concorda com nossos <a class="text-black underline" href="https://firebasestorage.googleapis.com/v0/b/chatpay-cd120.appspot.com/o/public%2Fapp%2Fterms_of_use.pdf?alt=media" rel="noopener noreferrer" target="_blank">Termos de Uso.</a></div>
-                    
 				</div>
 			</div>
 		</div>
