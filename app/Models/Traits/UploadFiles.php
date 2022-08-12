@@ -26,7 +26,7 @@ trait UploadFiles
     {
         $this->file_path = $photo->store('photo', 'public');
         $this->forceFill([
-            'photo' => $this->file_path
+            'photo' => '/storage/'.$this->file_path
         ]);
 
         $this->save();

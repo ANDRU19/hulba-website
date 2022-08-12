@@ -21,7 +21,7 @@ class AuthPhoneController extends Controller
     public function store(Request $request, SmsServiceInterface $sms)
     {
         $phone = $request->validate([
-            'phone' => 'required|regex:/^([0-9]*)$/'
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|min:13|max:13'
         ]);
 
         $customer = Customer::firstOrCreate($phone);

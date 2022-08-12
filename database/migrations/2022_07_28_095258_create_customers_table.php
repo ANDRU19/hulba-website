@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('verification_code')->unique()->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('email')->nullable();
-            $table->string('photo', 50)->nullable();
+            $table->string('photo')->nullable();
             $table->json('social')->nullable();
             $table->json('settings')->nullable();
             $table->text('description')->nullable();
