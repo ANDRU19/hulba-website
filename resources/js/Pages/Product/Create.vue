@@ -1,17 +1,21 @@
 <script setup>
-	import ref from "vue";
+	import { ref } from "vue";
 	import AppLayout from "@/Layouts/AppLayout.vue";
 	import PaymentType from "@/Pages/Payment/Type.vue";
 	import { Head } from "@inertiajs/inertia-vue3";
 	import { useForm } from "@inertiajs/inertia-vue3";
+    import TextArea from "@/Components/TextArea.vue";
+	import Input from "@/Components/Input.vue";
+	import Label from "@/Components/Label.vue";
+	import InputError from "@/Components/InputError.vue";
 
-	defineProps({
+	const props = defineProps({
 		categories: Object,
 		errors: Object,
 	});
 
-	const url = null;
-	const image = ref();
+	const photoPreview = ref(null);
+	const photoInput = ref(null);
 
 	const payment_type = {
 		plan: "",
@@ -33,9 +37,9 @@
 		},
 	});
 
-	function submit() {
-		if (image.value) {
-			form.image = image.value.files[0];
+	const submit = () => {
+		if (photoInput.value) {
+			form.image = photoInput.value.files[0];
 		}
 		form.payment.plan = payment_type.plan;
 		form.payment.price = payment_type.price;
@@ -43,12 +47,31 @@
 		form.payment.days = payment_type.days;
 
 		form.post(route("product.store"));
-	}
+	};
 
-	function previewImage(e) {
-		const file = e.target.files[0];
-		url = URL.createObjectURL(file);
-	}
+	const selectNewPhoto = () => {
+		photoInput.value.click();
+	};
+
+	const updatePhotoPreview = (e) => {
+		const photo = photoInput.value.files[0];
+
+		if (!photo) return;
+
+		const reader = new FileReader();
+
+		reader.onload = (e) => {
+			photoPreview.value = e.target.result;
+		};
+
+		reader.readAsDataURL(photo);
+	};
+
+	const clearPhotoFileInput = () => {
+		if (photoInput.value?.value) {
+			photoInput.value.value = null;
+		}
+    };
 </script>
 
 <template>
@@ -59,30 +82,40 @@
 			<h2 class="text-xl font-semibold leading-tight text-gray-800">Create</h2>
 		</template>
 
-		<div class="py-12">
-			<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-				<div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-					<div class="p-6 bg-white border-b border-gray-200">
+		<div class="">
+			<div class="mx-auto max-w-5xl w-2/3 sm:px-6 lg:px-8">
+				<div class="bg-white">
+                    <h3 class="text-2xl">Create your product</h3>
+					<div class="mt-2 font-light text-md">Create your paid product and charge your members for entry.</div>
+
+					<div class="mt-5">
 						<form @submit.prevent="submit">
-							<div>
-								<label for="host">Title</label>
-								<input type="text" v-model="form.title" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-							</div>
-							<div>
-								<label for="File">Image</label>
-								<input type="file" @change="previewImage" ref="image" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-								<img v-if="url" :src="url" class="w-full mt-4 h-80" />
-								<div v-if="errors.image" class="font-bold text-red-600">
-									{{ errors.image }}
+							<div class="col-span-12 lg:col-span-12">
+								<Label for="File">Foto</Label>
+
+								<div @click.prevent="selectNewPhoto" v-show="!photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
+									<span class="text-3xl text-gray-400 material-symbols-outlined"> photo_camera </span>
+								</div>
+
+								<div @click.prevent="selectNewPhoto" v-show="photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
+                                    <img :src="photoPreview" class="h-80" />
+                                </div>
+
+								<input type="file" @change="updatePhotoPreview" ref="photoInput" class="hidden w-full px-4 py-2 mt-2 h-80 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+								<div v-if="errors.photo" class="font-bold text-red-600">
+									{{ errors.photo }}
 								</div>
 							</div>
-
-							<div>
-								<label for="login">Description</label>
-								<input type="text" v-model="form.description" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+							<div class="mt-5">
+								<Label for="host">Title</Label>
+								<Input type="text" v-model="form.title" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 							</div>
-							<div>
-								<label for="category">Category</label>
+							<div class="mt-5">
+								<Label for="login">Caption</Label>
+								<TextArea type="text" v-model="form.description" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+							</div>
+							<div class="mt-5">
+								<Label for="category">What category does your product fall into?</Label>
 								<select v-model="form.category_id" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
 									<option v-for="category in categories" :key="category.id" :value="category.id">
 										{{ category.name }}
