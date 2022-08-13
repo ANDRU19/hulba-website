@@ -14,14 +14,14 @@ class ProductController extends Controller
     public function index()
     { 
         $products = Product::with(['customer','category','image'])->latest()->paginate(10);
-        return Inertia::render('Product/Index', ['products' => $products]);
+        return Inertia::render('Products/Index', ['products' => $products]);
     }
 
 
     public function create()
     {
         $categories = Category::all(['id','name']);
-        return Inertia::render('Product/Create',['categories' => $categories]);
+        return Inertia::render('Products/Create',['categories' => $categories]);
     }
 
 
@@ -47,13 +47,13 @@ class ProductController extends Controller
             'days' => $request->payment['days']
         ]);
 
-        return  Redirect::route('product.index');
+        return  Redirect::route('products.index');
     }
 
 
     public function edit(Product $product)
     {
-        return Inertia::render('Product/Edit', [
+        return Inertia::render('Products/Edit', [
             'product' => [
                 'id' => $product->id,
                 'title' => $product->title,
@@ -81,7 +81,7 @@ class ProductController extends Controller
                 $product->imageSave($request->file('image'));
             }
 
-        return Redirect::route('product.index');
+        return Redirect::route('products.index');
     }
 
 
@@ -89,6 +89,6 @@ class ProductController extends Controller
     {
         $product->delete();
         
-        return Redirect::route('product.index');
+        return Redirect::route('products.index');
     }
 }

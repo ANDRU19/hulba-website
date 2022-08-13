@@ -78,9 +78,7 @@
 	<Head title="Dashboard" />
 
 	<AppLayout>
-		<template #header>
-			<h2 class="text-xl font-semibold leading-tight text-gray-800">Create</h2>
-		</template>
+		
 
 		<div class="">
 			<div class="mx-auto max-w-5xl w-2/3 sm:px-6 lg:px-8">
