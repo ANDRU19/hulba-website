@@ -47,7 +47,7 @@ class ProductController extends Controller
             'days' => $request->payment['days']
         ]);
 
-        return  Redirect::route('products.index');
+        return  Redirect::route('products.list');
     }
 
 
@@ -81,7 +81,7 @@ class ProductController extends Controller
                 $product->imageSave($request->file('image'));
             }
 
-        return Redirect::route('products.index');
+        return Redirect::route('products.list');
     }
 
 
@@ -89,6 +89,6 @@ class ProductController extends Controller
     {
         $product->delete();
         
-        return Redirect::route('products.index');
+        return Redirect::route('products.list');
     }
 }
