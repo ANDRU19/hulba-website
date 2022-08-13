@@ -46,7 +46,7 @@
 		form.payment.monthly = payment_type.monthly;
 		form.payment.days = payment_type.days;
 
-		form.post(route("product.store"));
+		form.post(route("products.store"));
 	};
 
 	const selectNewPhoto = () => {
