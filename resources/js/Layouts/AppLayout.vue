@@ -65,7 +65,7 @@
 
 				<div class="flex-1 px-4 flex justify-between">
 					<div class="flex-1 flex justify-end items-center">
-						<a :href="route('payments')" class="btn btn-transperent f-s-8 mr-3">My products</a>
+						<Link :href="route('payments')" class="btn btn-transperent f-s-8 mr-3">My products</Link>
 					</div>
 					<div class="ml-4 flex items-center md:ml-6">
 						<!-- Profile dropdown -->
@@ -80,7 +80,7 @@
 							<transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
 								<MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
 									<MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
-										<a :href="item.href" @click="item.click" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">{{ item.name }}</a>
+										<Link :href="item.href" @click="item.click" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">{{ item.name }}</Link>
 									</MenuItem>
 								</MenuItems>
 							</transition>
@@ -92,8 +92,8 @@
 			<main class="flex-1">
 				<div class="py-6">
 					<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <slot name="header"></slot>
-          </div>
+						<slot name="header"></slot>
+					</div>
 					<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
 						<div class="py-1">
 							<slot></slot>
@@ -106,10 +106,12 @@
 </template>
 
 <script setup>
-	import { ref } from "vue";
+	import { ref, component } from "vue";
 	import { Inertia } from "@inertiajs/inertia";
 	import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems, TransitionChild, TransitionRoot } from "@headlessui/vue";
 	import Logo from "./Partials/Logo.vue";
+	import { Link } from "@inertiajs/inertia-vue3";
+	import { XIcon, MenuAlt2Icon } from "@heroicons/vue/solid";
 
 	const navigation = [
 		{ name: "Dashboard", href: route("dashboard.index"), icon: "settings", current: route().current("dashboard.index") },
