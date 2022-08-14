@@ -13,7 +13,10 @@ class ProductController extends Controller
     
     public function index()
     { 
-        $products = Product::with(['customer','category','image'])->latest()->paginate(10);
+        $products = Product::with(['customer','category','image'])
+                        ->where('customer_id', auth()->user()->id)
+                        ->latest()
+                        ->paginate(10);
         return Inertia::render('Products/Index', ['products' => $products]);
     }
 
