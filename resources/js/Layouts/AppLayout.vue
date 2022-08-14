@@ -22,11 +22,10 @@
 							</div>
 							<div class="mt-5 flex-1 h-0 overflow-y-auto">
 								<nav class="px-2 space-y-1">
-									<a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md']">
-										<component :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-4 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
+									<Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md']">
 										<span class="material-symbols-outlined mr-2"> {{ item.icon }} </span>
 										{{ item.name }}
-									</a>
+									</Link>
 								</nav>
 							</div>
 						</DialogPanel>
@@ -47,11 +46,10 @@
 				</div>
 				<div class="mt-10 flex-grow flex flex-col">
 					<nav class="flex-1 px-2 pb-4 space-y-1">
-						<a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
-							<component :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
+						<Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
 							<span class="material-symbols-outlined mr-2"> {{ item.icon }} </span>
 							{{ item.name }}
-						</a>
+						</Link>
 					</nav>
 				</div>
 			</div>
@@ -106,7 +104,7 @@
 </template>
 
 <script setup>
-	import { ref, component } from "vue";
+	import { ref } from "vue";
 	import { Inertia } from "@inertiajs/inertia";
 	import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems, TransitionChild, TransitionRoot } from "@headlessui/vue";
 	import Logo from "./Partials/Logo.vue";
