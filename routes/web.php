@@ -29,13 +29,16 @@ Route::middleware('guest')->group(function () {
     Route::post('verification', [AuthPhoneController::class, 'verification'])->name('verification');
 });
 
-Route::withoutMiddleware([VerifyProfileCustomer::class])->group(function () {
-    Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
-    Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::view('/', 'frontend.home');
-});
+
 
 Route::middleware('auth')->group(function () {
+
+    Route::withoutMiddleware([VerifyProfileCustomer::class])->group(function () {
+        Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+        Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::view('/', 'frontend.home');
+    });
+
     Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
 
     Route::resource('category', CategoryController::class);
