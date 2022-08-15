@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
+
 class ProductController extends Controller
 {
     
@@ -18,6 +19,16 @@ class ProductController extends Controller
                         ->latest()
                         ->paginate(10);
         return Inertia::render('Products/Index', ['products' => $products]);
+    }
+
+    
+    public function show(Product $product)
+    {
+        return Inertia::render('Products/Show', ['product' => [
+            'title' => $product->title,
+            'description' => $product->description,
+            'image' => $product->image->name
+        ]]);
     }
 
 

@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
     /* Products routes */
     Route::get('products/index', [ProductController::class, 'index'])->name('products.list');
     Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::get('products/show/{product}', [ProductController::class, 'show'])->name('products.show');
     Route::get('products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
     Route::post('products/store', [ProductController::class, 'store'])->name('products.store');
     Route::put('products/update/{product}', [ProductController::class, 'update'])->name('products.update');

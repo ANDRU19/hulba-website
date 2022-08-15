@@ -1,7 +1,7 @@
 <template>
   <Head title="Dashboard" />
 
-  <PaymentLayout>
+  <WithoutSidebarLayout>
     <template #header>
       <h2 class="text-xl font-semibold leading-tight text-gray-800">
         My products
@@ -43,17 +43,17 @@
         <pagination :links="payments.links" />
       </div>
     </div>
-  </PaymentLayout>
+  </WithoutSidebarLayout>
 </template>
 
 <script>
-import PaymentLayout from "@/Layouts/PaymentLayout.vue";
+import WithoutSidebarLayout from "@/Layouts/WithoutSidebarLayout.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { Link } from "@inertiajs/inertia-vue3";
 import Pagination from "@/Layouts/Partials/Pagination.vue";
 export default {
   components: {
-    PaymentLayout,
+    WithoutSidebarLayout,
     Pagination,
     Head,
     Link,

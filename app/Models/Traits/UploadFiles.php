@@ -16,7 +16,7 @@ trait UploadFiles
         $this->file_path = $image->store('images', 'public');
 
             Image::create([
-                'name' => $this->file_path, 
+                'name' => '/storage/'.$this->file_path, 
                 'product_id' => $this->id
             ]);
     }

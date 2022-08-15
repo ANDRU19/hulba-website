@@ -42,7 +42,7 @@
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.id }}</td>
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.title }}</td>
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
-						<img class="rounded w-10 h-10" :src="'/storage/' + product.image.name" width="80" />
+						<img class="rounded w-10 h-10" :src="product.image.name" width="80" />
 					</td>
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.category.name }}</td>
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.customer.name }}</td>
