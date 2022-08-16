@@ -81,9 +81,10 @@ const navigation = [
   { name: 'Profile', href: '#', icon: ChartBarIcon, current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#', click: '' },
-  { name: 'Settings', href: '#', click: '' },
-  { name: 'Sign out', href: '#', click: () => Inertia.post(route('logout')) },
+		{ name: "Edit profile", href: route("profile"), click: "" },
+		{ name: "Payments details", href: "#", click: "" },
+		{ name: "Help", href: route("help"), click: "" },
+		{ name: "To go out", href: "#", click: () => Inertia.post(route("logout")) },
 ]
 
 const sidebarOpen = ref(false)

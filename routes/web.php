@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
 
         Route::get('/', fn () => Inertia::render('Dashboard'))->name('dashboard');
+        Route::get('help', fn () => Inertia::render('Help'))->name('help');
         Route::get('index', [ DashboardController::class, 'index'])->name('dashboard.index');
         /* Products routes */
         Route::get('products', ['App\Http\Controllers\Dashboard\ProductController', 'index'])->name('products.list');

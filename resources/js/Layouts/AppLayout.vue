@@ -120,8 +120,10 @@
 		{ name: "Profile", href: route("profile"), icon: "person", current: route().current("profile") },
 	];
 	const userNavigation = [
-		{ name: "Your Profile", href: route("profile"), click: "" },
-		{ name: "Sign out", href: "#", click: () => Inertia.post(route("logout")) },
+		{ name: "Edit profile", href: route("profile"), click: "" },
+		{ name: "Payments details", href: "#", click: "" },
+		{ name: "Help", href: route("help"), click: "" },
+		{ name: "To go out", href: "#", click: () => Inertia.post(route("logout")) },
 	];
 
 	const sidebarOpen = ref(false);
