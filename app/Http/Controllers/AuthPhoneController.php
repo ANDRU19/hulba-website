@@ -57,6 +57,6 @@ class AuthPhoneController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return Inertia::location('/');
     }
 }

@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', fn () => Inertia::render('Dashboard'))->name('dashboard');
         Route::get('index', [ DashboardController::class, 'index'])->name('dashboard.index');
         /* Products routes */
-        Route::get('products/index', ['App\Http\Controllers\Dashboard\ProductController', 'index'])->name('products.list');
+        Route::get('products', ['App\Http\Controllers\Dashboard\ProductController', 'index'])->name('products.list');
         Route::get('products/create', ['App\Http\Controllers\Dashboard\ProductController', 'create'])->name('products.create');
         Route::get('products/edit/{product}', ['App\Http\Controllers\Dashboard\ProductController', 'edit'])->name('products.edit');
         Route::post('products/store', ['App\Http\Controllers\Dashboard\ProductController', 'store'])->name('products.store');
