@@ -65,7 +65,8 @@ class ProductController extends Controller
                 'description' => $product->description,
                 'image' => $product->image->name,
             ],
-            'categories' => Product::categories()
+            'categories' => Product::categories(),
+            'payment' => $product->payment
         ]);
     }
 
@@ -84,6 +85,13 @@ class ProductController extends Controller
             if ($request->hasFile('image')) {
                 $product->imageSave($request->file('image'));
             }
+
+            $product->payment()->update([
+                'plan' => $request->payment['plan'],
+                'price' => $request->payment['price'],
+                'monthly' => $request->payment['monthly'],
+                'days' => $request->payment['days']
+            ]);
 
         return Redirect::route('products.list');
     }

@@ -1,3 +1,27 @@
+<script setup>
+import Input from "@/Components/Input.vue";
+import Label from "@/Components/Label.vue";
+
+	const props = defineProps({
+    data: Object
+	});
+
+  const emit = defineEmits(["update:data"]);
+
+  const setPlan = (value) => {
+    props.data.plan = value;
+    props.data.monthly = 0;
+    props.data.price = 0;
+    props.data.days = 0;
+    emit("update:data", props.data);
+  }
+
+console.log(props.data.plan);
+
+
+
+</script>
+
 <template>
   <div class="border border-gray-400 rounded-md mt-5">
     <!-- One-time payment -->
@@ -6,20 +30,12 @@
         type="radio"
         id="one-time-payment"
         class="mr-3"
-        :checked="one_time_payment"
-        @change="
-          data.plan = 'one-time-payment';
-          one_time_payment = true;
-          signature = false;
-          monthlyplan = false;
-          quartery = false;
-          semestral = false;
-          annual = false;
-        "
+        :checked="data.plan == 'one-time-payment'"
+        @change="setPlan('one-time-payment')"
       />
       <label class="font-bold" for="one-time-payment">One-time payment</label>
     </div>
-    <div class="p-2" v-if="one_time_payment">
+    <div class="p-2" v-if="data.plan == 'one-time-payment'">
       <div class="mb-4">
         <Label>Price</Label>
         <div class="mt-1 flex rounded-md shadow-sm">
@@ -65,33 +81,24 @@
         type="radio"
         id="signature"
         class="mr-3"
-        :checked="signature"
-        @change="
-          signature = true;
-          one_time_payment = false;
-        "
+        :checked="['monthly','quartery','semestral','annual','signature'].includes(data.plan)"
+        @change="setPlan('signature')"
       />
       <label class="font-bold" for="signature">Signature</label>
     </div>
 
-    <div  class="border border-gray-400 rounded-md mt-4 ml-2 mr-2 mb-4" v-if="signature">
+    <div  class="border border-gray-400 rounded-md mt-4 ml-2 mr-2 mb-4" v-if="['monthly','quartery','semestral','annual','signature'].includes(data.plan)">
       <!-- Monthly plan -->
       <div class="p-2">
         <input
           type="radio"
           id="monthlyplan"
           class="mr-3"
-          :checked="monthlyplan"
-          @change="
-            data.plan = 'monthly';
-            monthlyplan = true;
-            quartery = false;
-            semestral = false;
-            annual = false;
-          "
+          :checked="data.plan == 'monthly'"
+          @change="setPlan('monthly')"
         />
         <label class="font-bold" for="monthlyplan">Monthly plan</label>
-        <div v-if="monthlyplan">
+        <div v-if="data.plan == 'monthly'">
           <div class="mt-4">
             <Label>Total</Label>
             <div class="mt-1 flex rounded-md shadow-sm">
@@ -162,17 +169,11 @@
           type="radio"
           id="quartery"
           class="mr-3"
-          :checked="quartery"
-          @change="
-            data.plan = 'quartery';
-            quartery = true;
-            monthlyplan = false;
-            semestral = false;
-            annual = false;
-          "
+          :checked="data.plan == 'quartery'"
+          @change="setPlan('quartery')"
         />
         <label class="font-bold" for="quartery">Quartery plan</label>
-        <div v-if="quartery">
+        <div v-if="data.plan == 'quartery'">
           <div class="mt-4">
             <Label>Monthly</Label>
             <div class="mt-1 flex rounded-md shadow-sm">
@@ -279,17 +280,11 @@
           type="radio"
           id="semestral"
           class="mr-3"
-          :checked="semestral"
-          @change="
-            data.plan = 'semestral';
-            semestral = true;
-            quartery = false;
-            monthlyplan = false;
-            annual = false;
-          "
+          :checked="data.plan == 'semestral'"
+          @change="setPlan('semestral')"
         />
         <label class="font-bold" for="semestral">Semestral plan</label>
-        <div v-if="semestral">
+        <div v-if="data.plan == 'semestral'">
           <div class="mt-4">
             <Label>Monthly</Label>
             <div class="mt-1 flex rounded-md shadow-sm">
@@ -396,17 +391,11 @@
           type="radio"
           id="annual"
           class="mr-3"
-          :checked="annual"
-          @change="
-            data.plan = 'annual';
-            annual = true;
-            semestral = false;
-            monthlyplan = false;
-            quartery = false;
-          "
+          :checked="data.plan == 'annual'"
+          @change="setPlan('annual')"
         />
         <label class="font-bold" for="annual">Annual plan</label>
-        <div v-if="annual">
+        <div v-if="data.plan == 'annual'">
           <div class="mt-4">
             <Label>Monthly</Label>
             <div class="mt-1 flex rounded-md shadow-sm">
@@ -509,28 +498,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import Input from "@/Components/Input.vue";
-import Label from "@/Components/Label.vue";
-export default {
-  components: {
-    Input,
-    Label,
-  },
-
-  props: {
-    data: Object,
-  },
-  data() {
-    return {
-      monthlyplan: false,
-      quartery: false,
-      semestral: false,
-      annual: false,
-      signature: false,
-      one_time_payment: false,
-    };
-  },
-};
-</script>
