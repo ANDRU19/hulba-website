@@ -91,8 +91,8 @@
                                         focus:ring-blue-600
                                     "
                                 >
-                                    <option v-for="category in categories" :key="category.id" :value="category.id">
-                                        {{ category.name }}
+                                    <option v-for="(category, index) in categories" :key="index" :value="index">
+                                        {{ category }}
                                     </option>
                                 </select>
                             </div>
@@ -153,7 +153,7 @@ export default {
             if (this.$refs.image) {
                 this.form.image = this.$refs.image.files[0];
             }
-            this.form.post(route("product.update", this.product.id));
+            this.form.post(route("products.update", this.product.id));
         },
         previewImage(e) {
             const file = e.target.files[0];

@@ -44,7 +44,7 @@
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
 						<img class="rounded w-10 h-10" :src="product.image.name" width="80" />
 					</td>
-					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.category.name }}</td>
+					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.category }}</td>
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ product.customer.name }}</td>
 					<td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
 						<Link class="text-green-700" :href="route('products.edit', product.id)"> Edit </Link>

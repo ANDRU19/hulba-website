@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\UploadFiles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Product extends Model
 {
@@ -16,6 +17,28 @@ class Product extends Model
         'description'
     ];
 
+    protected $appends = ['category'];
+
+    public static function categories()
+    { 
+        return [
+            0 => 'Other',
+            1 => 'Welfare',
+            2 => 'investmens',
+            3 => 'Education',
+            4 => 'languages',
+            5 => 'Literature',
+            6 => 'Entertainment',
+            7 => 'Personal growth',
+            8 => 'Cuisine and Gastronomy'
+        ];
+    }
+
+    public function getCategoryAttribute()
+    {
+        return self::categories()[$this->category_id];
+    }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);
@@ -24,11 +47,6 @@ class Product extends Model
     public function image()
     {
         return $this->hasOne(Image::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
     }
 
     public function payment()

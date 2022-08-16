@@ -114,7 +114,6 @@
 	const navigation = [
 		{ name: "Dashboard", href: route("dashboard.index"), icon: "settings", current: route().current("dashboard.index") },
 		{ name: "Products", href: route("products.list"), icon: "inventory_2", current: route().current("products.list") },
-		{ name: "Categories", href: "/category", icon: "category", current: false },
 		{ name: "Sales", href: "#", icon: "monetization_on", current: false },
 		{ name: "Coupons", href: "#", icon: "percent", current: false },
 		{ name: "Affiliates", href: "#", icon: "handshake", current: false },

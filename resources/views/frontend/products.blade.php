@@ -49,61 +49,16 @@
                                         <div class="info-page-title">Product</div>
                                     </div>
                                     <div class="row pb-4 pt-4">
-
-                                        <div class="col-md-4 pb-4">
-                                            <div class="item-wrapper">
-                                                <div class="item-img pb-4"><img src="storage/img/football.jpg" alt= ""></div>
-                                                <h5 class="pb-2">Profitable sport - fut</h5>
-                                                <p class="pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
+                                        @foreach ($products as $product)
+                                            <div class="col-md-4 pb-4">
+                                                <div class="item-wrapper">
+                                                    <div class="item-img pb-4"><a href="{{route('products.show', $product->id)}}"><img src="{{$product->image->name}}" alt= ""></a></div>
+                                                    <h5 class="pb-2">{{$product->title}}</h5>
+                                                    <p class="pb-4">{{$product->description}}</p>
+                                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="col-md-4 pb-4">
-                                            <div class="item-wrapper">
-                                                <div class="item-img pb-4"><img src="storage/img/football.jpg" alt= ""></div>
-                                                <h5 class="pb-2">Profitable sport - fut</h5>
-                                                <p class="pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 pb-4">
-                                            <div class="item-wrapper">
-                                                <div class="item-img pb-4"><img src="storage/img/football.jpg" alt= ""></div>
-                                                <h5 class="pb-2">Profitable sport - fut</h5>
-                                                <p class="pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 pb-4">
-                                            <div class="item-wrapper">
-                                                <div class="item-img pb-4"><img src="storage/img/football.jpg" alt= ""></div>
-                                                <h5 class="pb-2">Profitable sport - fut</h5>
-                                                <p class="pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 pb-4">
-                                            <div class="item-wrapper">
-                                                <div class="item-img pb-4"><img src="storage/img/football.jpg" alt= ""></div>
-                                                <h5 class="pb-2">Profitable sport - fut</h5>
-                                                <p class="pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 pb-4">
-                                            <div class="item-wrapper">
-                                                <div class="item-img pb-4"><img src="storage/img/football.jpg" alt= ""></div>
-                                                <h5 class="pb-2">Profitable sport - fut</h5>
-                                                <p class="pb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Subscribe from BRL 20.00/month</button>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
                                     </div>
 
 

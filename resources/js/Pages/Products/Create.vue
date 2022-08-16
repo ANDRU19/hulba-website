@@ -28,7 +28,7 @@
 		title: null,
 		image: null,
 		description: null,
-		category_id: null,
+		category_id: 0,
 		payment: {
 			plan: "",
 			price: 0,
@@ -115,8 +115,8 @@
 							<div class="mt-5">
 								<Label for="category">What category does your product fall into?</Label>
 								<select v-model="form.category_id" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
-									<option v-for="category in categories" :key="category.id" :value="category.id">
-										{{ category.name }}
+									<option v-for="(category, index) in categories" :key="index" :value="index">
+										{{ category }}
 									</option>
 								</select>
 							</div>
