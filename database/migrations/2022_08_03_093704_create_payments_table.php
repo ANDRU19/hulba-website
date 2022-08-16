@@ -19,8 +19,8 @@ return new class extends Migration
             $table->decimal('price', 9, 2);
             $table->string('monthly');
             $table->string('days');
-            $table->foreignId('customer_id')->constrained();
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

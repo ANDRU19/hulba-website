@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title', 150);
             $table->text('description');
             $table->integer('category_id')->default(0);
-            $table->foreignId('customer_id')->constrained();
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

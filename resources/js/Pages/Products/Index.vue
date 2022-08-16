@@ -2,13 +2,14 @@
 	import AppLayout from "@/Layouts/AppLayout.vue";
 	import { Head } from "@inertiajs/inertia-vue3";
 	import { Link } from "@inertiajs/inertia-vue3";
+	import { Inertia } from '@inertiajs/inertia'
 	import Pagination from "@/Layouts/Partials/Pagination.vue";
 
 	defineProps({
 		products: Object,
 	});
 	const destroy = (id) => {
-		this.$inertia.delete(route("product.destroy", id));
+		Inertia.delete(route("products.destroy", id));
 	};
 </script>
 
