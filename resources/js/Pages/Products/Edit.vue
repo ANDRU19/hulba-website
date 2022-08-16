@@ -44,7 +44,9 @@ console.log(payment_type);
 			form.image = photoInput.value.files[0];
 		}
 
-		form.post(route("products.update"));
+        form.payment = payment_type;
+
+		form.post(route("products.update", props.product.id));
 	};
 
 	const selectNewPhoto = () => {

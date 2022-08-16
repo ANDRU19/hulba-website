@@ -1,10 +1,18 @@
 <script setup>
 import Input from "@/Components/Input.vue";
 import Label from "@/Components/Label.vue";
+import { ref, watch } from 'vue'
 
 	const props = defineProps({
     data: Object
 	});
+
+  // const payments = ref({
+  //   plan = value;
+  //   props.data.monthly = 0;
+  //   props.data.price = 0;
+  //   props.data.days = 0;
+  // });
 
   const emit = defineEmits(["update:data"]);
 
@@ -13,10 +21,15 @@ import Label from "@/Components/Label.vue";
     props.data.monthly = 0;
     props.data.price = 0;
     props.data.days = 0;
-    emit("update:data", props.data);
+    //emit("update:data", props.data);
   }
 
-console.log(props.data.plan);
+watch(
+  ()=> props.data,
+  (value) => {
+ const emit = defineEmits(["model:Value"]);
+  }
+)
 
 
 

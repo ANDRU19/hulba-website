@@ -75,11 +75,11 @@ class ProductController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            //'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'required',
             'category_id' => 'required|int'
             ]);
-
+            
             $product->update($data); 
 
             if ($request->hasFile('image')) {
@@ -91,7 +91,7 @@ class ProductController extends Controller
                 'price' => $request->payment['price'],
                 'monthly' => $request->payment['monthly'],
                 'days' => $request->payment['days']
-            ]);
+            ]); 
 
         return Redirect::route('products.list');
     }
