@@ -1,5 +1,5 @@
 <template>
-	<div class="container mx-auto px-4">
+	<div class="px-4">
 		<TransitionRoot as="template" :show="sidebarOpen">
 			<Dialog as="div" class="relative z-40 md:hidden" @close="sidebarOpen = false">
 				<TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="transition-opacity ease-linear duration-300" leave-from="opacity-100" leave-to="opacity-0">

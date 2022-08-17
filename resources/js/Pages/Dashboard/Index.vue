@@ -33,7 +33,7 @@
 				<div class="flex items-center mb-6">
 					<span class="text-gray-600 font-semibold">Clients por recorrência</span>
 				</div>
-				<div class="flex space-x-12">
+				<div class="flex space-x-20">
 					<div class="text-gray-600">
 						<div class="text-sm">Anual</div>
 						<div class="text-sm">0</div>

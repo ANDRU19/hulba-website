@@ -93,11 +93,11 @@
 									<span class="text-3xl text-gray-400 material-symbols-outlined"> photo_camera </span>
 								</div>
 
-								<div @click.prevent="selectNewPhoto" v-show="photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
-									<img :src="photoPreview" class="h-80" />
+								<div @click.prevent="selectNewPhoto" v-show="photoPreview" class="cursor-pointer mt-1 h-60 border border-gray-300 py-2 flex items-center place-content-center">
+									<img :src="photoPreview" class="h-60" />
 								</div>
 
-								<input type="file" @change="updatePhotoPreview" ref="photoInput" class="hidden w-full px-4 py-2 mt-2 h-80 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+								<input type="file" @change="updatePhotoPreview" ref="photoInput" class="hidden w-full px-4 py-2 mt-2 h-60 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 								<InputError :message="form.errors.image"></InputError>
 							</div>
 
