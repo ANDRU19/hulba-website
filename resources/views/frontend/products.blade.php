@@ -7,7 +7,7 @@
                     <ul class="nav flex-column">
                         <li class="nav-item mob-user-menu d-lg-none">
                             <div class="border-top pt-3">hello Cris</div>
-                            <a href="#" class="btn btn-transperent f-s-8 mt-3">My products</a>
+                            <a href="#" class="btn btn-transperent f-s-8 mt-3 text-sm">My products</a>
                         </li>
                     </ul>
                 </div>

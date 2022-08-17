@@ -63,7 +63,7 @@
 
 				<div class="flex-1 px-4 flex justify-between">
 					<div class="flex-1 flex justify-end items-center">
-						<Link :href="route('payments')" class="btn btn-transperent f-s-8 mr-3">My products</Link>
+						<Link :href="route('payments')" class="text-sm border border-gray-200 rounded py-2 px-6">My products</Link>
 					</div>
 					<div class="ml-4 flex items-center md:ml-6">
 						<!-- Profile dropdown -->
