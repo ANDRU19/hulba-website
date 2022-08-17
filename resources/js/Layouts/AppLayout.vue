@@ -38,7 +38,7 @@
 		</TransitionRoot>
 
 		<!-- Static sidebar for desktop -->
-		<div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+		<div class="hidden md:flex md:w-48 md:flex-col md:fixed md:inset-y-0">
 			<!-- Sidebar component, swap this element with another sidebar if you like -->
 			<div class="flex flex-col flex-grow border-r border-gray-200 pt-5 bg-white overflow-y-auto">
 				<div class="flex items-center flex-shrink-0 px-4">
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="md:pl-64 flex flex-col flex-1">
+		<div class="md:pl-48 flex flex-col flex-1">
 			<div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white">
 				<button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden" @click="sidebarOpen = true">
 					<span class="sr-only">Open sidebar</span>

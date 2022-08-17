@@ -102,14 +102,15 @@
 				<div class="col-span-5">
 					<form @submit.prevent="submit">
 						<!-- Basic Information -->
-						<div class="flex border-b border-gray-400">
-							<div class="w-[50rem] ml-2">
+						<div class="flex border-b border-gray-300 pb-5">
+							<div class="w-[64rem] ml-2 mr-10">
 								<div class="text-lg">Basic Information</div>
 								<div class="text-gray-500 font-light text-sm">
 									<p class="mt-5">Basic information is an important part of your product. Add a title, subtitle and photo to show more credibility.</p>
-									<p class="mt-5">You can learn more about setting up your product introduction by clicking here.</p>
+									<p class="mt-5">You can learn more about setting up your product introduction by <a class="text-sky-600">clicking here.</a></p>
 								</div>
 							</div>
+
 							<div>
 								<div class="col-span-12 lg:col-span-12">
 									<Label for="File">Foto</Label>
@@ -125,17 +126,18 @@
 									<input type="file" @change="updatePhotoPreview" ref="photoInput" class="hidden w-full px-4 py-2 mt-2 h-60 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 									<InputError :message="form.errors.image"></InputError>
 								</div>
+
 								<div class="mt-5">
-									<Label for="host">Title</Label>
-									<Input type="text" v-model="form.title" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+									<Label for="title" value="Title" />
+									<Input type="text" v-model="form.title" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
 								</div>
 								<div class="mt-5">
-									<Label for="login">Caption</Label>
-									<TextArea type="text" v-model="form.description" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
+									<Label for="caption" value="Caption" />
+									<TextArea :rows="4" type="text" v-model="form.description" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
 								</div>
 								<div class="mt-5">
 									<Label for="category">What category does your product fall into?</Label>
-									<select v-model="form.category_id" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+									<select v-model="form.category_id" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]">
 										<option v-for="(category, index) in categories" :key="index" :value="index">
 											{{ category }}
 										</option>
@@ -145,7 +147,18 @@
 						</div>
 
 						<!-- Price Section -->
-						<PaymentType :data="payment_type"></PaymentType>
+
+						<div class="flex border-b border-gray-300 pt-5 pb-5">
+							<div class="w-[64rem] ml-2 mr-10">
+								<div class="text-lg">Price</div>
+								<div class="text-gray-500 font-light text-sm">
+									<p class="mt-5">Define how much you want to charge for your product</p>
+								</div>
+							</div>
+							<div class="flex">
+								<PaymentType :data="payment_type"></PaymentType>
+							</div>
+						</div>
 
 						<!-- submit -->
 						<div class="flex items-center mt-4">
