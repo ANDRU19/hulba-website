@@ -4,7 +4,7 @@
 	import PaymentType from "@/Pages/Payment/Type.vue";
 	import { Head } from "@inertiajs/inertia-vue3";
 	import { useForm } from "@inertiajs/inertia-vue3";
-    import TextArea from "@/Components/TextArea.vue";
+	import TextArea from "@/Components/TextArea.vue";
 	import Input from "@/Components/Input.vue";
 	import Label from "@/Components/Label.vue";
 	import InputError from "@/Components/InputError.vue";
@@ -71,50 +71,50 @@
 		if (photoInput.value?.value) {
 			photoInput.value.value = null;
 		}
-    };
+	};
 </script>
 
 <template>
 	<Head title="Dashboard" />
 
 	<AppLayout>
-		
-
 		<div class="">
 			<div class="mx-auto max-w-5xl w-2/3 sm:px-6 lg:px-8">
 				<div class="bg-white">
-                    <h3 class="text-2xl">Create your product</h3>
+					<h3 class="text-2xl">Create your product</h3>
 					<div class="mt-2 font-light text-md">Create your paid product and charge your members for entry.</div>
 
 					<div class="mt-5">
 						<form @submit.prevent="submit">
 							<div class="col-span-12 lg:col-span-12">
-								<Label for="File">Foto</Label>
+								<Label for="File" value="Foto"></Label>
 
-								<div @click.prevent="selectNewPhoto" v-show="!photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
+								<div @click.prevent="selectNewPhoto" v-show="!photoPreview" class="cursor-pointer mt-1 h-60 rounded border border-gray-300 py-2 flex items-center place-content-center">
 									<span class="text-3xl text-gray-400 material-symbols-outlined"> photo_camera </span>
 								</div>
 
 								<div @click.prevent="selectNewPhoto" v-show="photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
-                                    <img :src="photoPreview" class="h-80" />
-                                </div>
+									<img :src="photoPreview" class="h-80" />
+								</div>
 
 								<input type="file" @change="updatePhotoPreview" ref="photoInput" class="hidden w-full px-4 py-2 mt-2 h-80 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-								<div v-if="errors.photo" class="font-bold text-red-600">
-									{{ errors.photo }}
-								</div>
+								<InputError :message="form.errors.image"></InputError>
+							</div>
+
+							<div class="col-span-12 mt-5">
+								<Label for="title" value="Title" />
+								<Input type="text" v-model="form.title" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
+								<InputError :message="form.errors.title"></InputError>
+							</div>
+
+							<div class="col-span-12 mt-5">
+								<Label for="caption" value="Caption" />
+								<TextArea type="text" v-model="form.description" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
+								<InputError :message="form.errors.description"></InputError>
 							</div>
 							<div class="mt-5">
-								<Label for="host">Title</Label>
-								<Input type="text" v-model="form.title" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-							</div>
-							<div class="mt-5">
-								<Label for="login">Caption</Label>
-								<TextArea type="text" v-model="form.description" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
-							</div>
-							<div class="mt-5">
-								<Label for="category">What category does your product fall into?</Label>
-								<select v-model="form.category_id" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+								<Label for="category" value="What category does your product fall into?" />
+								<select v-model="form.category_id" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]">
 									<option v-for="(category, index) in categories" :key="index" :value="index">
 										{{ category }}
 									</option>
