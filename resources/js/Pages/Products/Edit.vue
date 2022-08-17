@@ -1,7 +1,7 @@
 <script setup>
 	import { ref, inject } from "vue";
 	import AppLayout from "@/Layouts/AppLayout.vue";
-	import PaymentType from "@/Pages/Payment/Type.vue";
+	import PaymentType from "@/Pages/Payment/EditType.vue";
 	import { Head } from "@inertiajs/inertia-vue3";
 	import { useForm } from "@inertiajs/inertia-vue3";
 	import TextArea from "@/Components/TextArea.vue";
@@ -88,7 +88,7 @@
 			<div class="mx-auto grid grid-cols-6">
 				<div class="col-span-1">
 					<nav class="space-y-3">
-						<a href="#sec-3" class="border-l-4 pl-2 border-gray-500 text-gray-600 group flex items-center"> Basic </a>
+						<a href="" class="border-l-4 pl-2 border-gray-500 text-gray-600 group flex items-center"> Basic </a>
 						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Basic Information </a>
 						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Price </a>
 						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Materials </a>
@@ -116,56 +116,43 @@
 								<div class="col-span-12 lg:col-span-12">
 									<Label for="File">Foto</Label>
 
-									<div @click.prevent="selectNewPhoto" v-show="!photoPreview" class="cursor-pointer mt-1 h-60 rounded border border-gray-300 py-2 flex items-center place-content-center">
-										<span class="text-3xl text-gray-400 material-symbols-outlined"> photo_camera </span>
-									</div>
+								<div @click.prevent="selectNewPhoto" v-show="!photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
+									<span class="text-3xl text-gray-400 material-symbols-outlined"> photo_camera </span>
+								</div>
 
-									<div @click.prevent="selectNewPhoto" v-show="photoPreview" class="rounded cursor-pointer mt-1 h-60 border border-gray-300 flex items-center place-content-center">
-										<img :src="photoPreview" class="h-full w-full bg-cover" />
-									</div>
+								<div @click.prevent="selectNewPhoto" v-show="photoPreview" class="cursor-pointer mt-1 h-80 border border-gray-300 py-2 flex items-center place-content-center">
+                                    <img :src="photoPreview" class="h-80" />
+                                </div>
 
 									<input type="file" @change="updatePhotoPreview" ref="photoInput" class="hidden w-full px-4 py-2 mt-2 h-60 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 									<InputError :message="form.errors.image"></InputError>
 								</div>
-
-								<div class="mt-5">
-									<Label for="title" value="Title" />
-									<Input type="text" v-model="form.title" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
-								</div>
-								<div class="mt-5">
-									<Label for="caption" value="Caption" />
-									<TextArea :rows="4" type="text" v-model="form.description" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
-								</div>
-								<div class="mt-5">
-									<Label for="category">What category does your product fall into?</Label>
-									<select v-model="form.category_id" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]">
-										<option v-for="(category, index) in categories" :key="index" :value="index">
-											{{ category }}
-										</option>
-									</select>
-								</div>
 							</div>
-						</div>
-
-						<!-- Price Section -->
-
-						<div id="sec-3" class="flex border-b border-gray-300 pt-5 pb-5">
-							<div class="w-[64rem] ml-2 mr-10">
-								<div class="text-lg">Price</div>
-								<div class="text-gray-500 font-light text-sm">
-									<p class="mt-5">Define how much you want to charge for your product</p>
-								</div>
+							<div class="mt-5">
+								<Label for="host">Title</Label>
+								<Input type="text" v-model="form.title" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 							</div>
-							<div class="flex">
-								<PaymentType :data="payment_type"></PaymentType>
+							<div class="mt-5">
+								<Label for="login">Caption</Label>
+								<TextArea type="text" v-model="form.description" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
 							</div>
-						</div>
+							<div class="mt-5">
+								<Label for="category">What category does your product fall into?</Label>
+								<select v-model="form.category_id" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+									<option v-for="(category, index) in categories" :key="index" :value="index">
+										{{ category }}
+									</option>
+								</select>
+							</div>
 
-						<!-- submit -->
-						<div class="flex items-center mt-4">
-							<button class="w-full px-6 py-2 text-white bg-gray-400 rounded">Create</button>
-						</div>
-					</form>
+							<PaymentType :data="payment_type"></PaymentType>
+
+							<!-- submit -->
+							<div class="flex items-center mt-4">
+								<button class="w-full px-6 py-2 text-white bg-gray-400 rounded">Create</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
