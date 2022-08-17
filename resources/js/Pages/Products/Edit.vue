@@ -87,15 +87,15 @@
 			<div class="mx-auto grid grid-cols-6">
 				<div class="col-span-1">
 					<nav class="space-y-3">
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center"> Basic </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Basic Information </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Price </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Materials </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center"> Sales Page </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Media </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Description </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Benefits </a>
-						<a href="" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center ml-5 text-sm"> Common Questions </a>
+						<a href="" class="border-l-4 pl-2 border-gray-500 text-gray-600 group flex items-center"> Basic </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Basic Information </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Price </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Materials </a>
+						<a href="" class="text-gray-600 group flex items-center"> Sales Page </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Media </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Description </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Benefits </a>
+						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Common Questions </a>
 					</nav>
 				</div>
 
