@@ -1,5 +1,5 @@
 <script setup>
-	import { ref } from "vue";
+	import { ref, inject } from "vue";
 	import AppLayout from "@/Layouts/AppLayout.vue";
 	import PaymentType from "@/Pages/Payment/Type.vue";
 	import { Head } from "@inertiajs/inertia-vue3";
@@ -8,6 +8,7 @@
 	import Input from "@/Components/Input.vue";
 	import Label from "@/Components/Label.vue";
 	import InputError from "@/Components/InputError.vue";
+	import VueSmoothScroll from "vue3-smooth-scroll";
 
 	const props = defineProps({
 		product: Object,
@@ -25,7 +26,7 @@
 		monthly: props.payment.monthly,
 		days: props.payment.days,
 	});
-	console.log(payment_type);
+
 	const form = useForm({
 		title: props.product.title,
 		image: props.product.image.name,
@@ -87,7 +88,7 @@
 			<div class="mx-auto grid grid-cols-6">
 				<div class="col-span-1">
 					<nav class="space-y-3">
-						<a href="" class="border-l-4 pl-2 border-gray-500 text-gray-600 group flex items-center"> Basic </a>
+						<a href="#sec-3" class="border-l-4 pl-2 border-gray-500 text-gray-600 group flex items-center"> Basic </a>
 						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Basic Information </a>
 						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Price </a>
 						<a href="" class="text-gray-600 group flex items-center ml-5 text-sm"> Materials </a>
@@ -148,7 +149,7 @@
 
 						<!-- Price Section -->
 
-						<div class="flex border-b border-gray-300 pt-5 pb-5">
+						<div id="sec-3" class="flex border-b border-gray-300 pt-5 pb-5">
 							<div class="w-[64rem] ml-2 mr-10">
 								<div class="text-lg">Price</div>
 								<div class="text-gray-500 font-light text-sm">
