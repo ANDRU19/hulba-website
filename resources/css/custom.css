@@ -3,3 +3,19 @@
     background-size: auto 100%;
     background-repeat: no-repeat;
 }
+
+.v3-input-emoji-picker>.v3-input-picker-root>.v3-emoji-picker-input {
+    font-size: 0.875rem !important;
+    padding-left: 0.75rem;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem;
+    margin-top: 0.25rem !important;
+    padding-right: 0.75rem !important;
+    line-height: 1.25rem !important;
+    border-color: rgb(209 213 219) !important;
+    border-radius: 0.25rem;
+}
+
+.v3-input-emoji-picker>.v3-input-picker-root {
+    width: 5rem;
+}
