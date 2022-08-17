@@ -1,7 +1,7 @@
 <script setup>
 	import { ref } from "vue";
 	import AppLayout from "@/Layouts/AppLayout.vue";
-	import PaymentType from "@/Pages/Payment/Type.vue";
+	import PaymentType from "@/Pages/Payment/CreateType.vue";
 	import { Head } from "@inertiajs/inertia-vue3";
 	import { useForm } from "@inertiajs/inertia-vue3";
 	import TextArea from "@/Components/TextArea.vue";
@@ -17,12 +17,12 @@
 	const photoPreview = ref(null);
 	const photoInput = ref(null);
 
-	const payment_type = {
+	const payment_type = ref({
 		plan: "",
 		price: 0,
 		monthly: 0,
 		days: 0,
-	};
+	});
 
 	const form = useForm({
 		title: null,
@@ -41,10 +41,8 @@
 		if (photoInput.value) {
 			form.image = photoInput.value.files[0];
 		}
-		form.payment.plan = payment_type.plan;
-		form.payment.price = payment_type.price;
-		form.payment.monthly = payment_type.monthly;
-		form.payment.days = payment_type.days;
+
+		form.payment = payment_type;
 
 		form.post(route("products.store"));
 	};
