@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('welcome_message')->nullable();
             $table->text('about_product')->nullable();
             $table->json('full_description')->nullable();
-            $table->json('additional_descriotion')->nullable();
+            $table->json('additional_description')->nullable();
             $table->json('benefits')->nullable();
             $table->json('common_questions')->nullable();
             $table->boolean('include_join_group_info')->default(false);

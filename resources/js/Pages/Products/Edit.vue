@@ -45,8 +45,13 @@
 		media: {},
 		about_product: "",
 		full_description: props.product.full_description,
-		additional_descriotion_title: "",
-		additional_descriotion: "",
+		additional_descriotion: [
+			{
+				title: "",
+				descriotion: "",
+			}
+		],
+
 		benefits: [
 			{
 				title: "test",
