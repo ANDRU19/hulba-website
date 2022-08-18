@@ -39,13 +39,13 @@
 		];
 	});
 
-	const data = ref(Object.keys(props.modelValue).length ? props.modelValue : {});
+	const data = ref(props.modelValue && Object.keys(props.modelValue).length ? props.modelValue : {});
 
 	const initData = () => {
 		options.value.forEach((option) => {
 			let key = option.key;
 
-			if (!props.modelValue[key]) {
+			if (!data.value[key]) {
 				data.value[option.key] = "";
 			}
 		});
