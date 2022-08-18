@@ -17,8 +17,7 @@ class Product extends Model
         'description',
         'welcome_message',
         'about_product',
-        'first_description',
-        'second_description',
+        'full_description',
         'additional_descriotion',
         'benefits',
         'common_questions',
@@ -29,8 +28,7 @@ class Product extends Model
     protected $appends = ['category'];
 
     protected $casts = [
-        'first_description' => 'array',
-        'second_description' => 'array',
+        'full_description' => 'array',
         'additional_descriotion' => 'array',
         'benefits' => 'array',
         'common_questions' => 'array'

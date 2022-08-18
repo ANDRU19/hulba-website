@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->text('welcome_message')->nullable();
             $table->text('about_product')->nullable();
-            $table->json('first_description')->nullable();
-            $table->json('second_description')->nullable();
+            $table->json('full_description')->nullable();
             $table->json('additional_descriotion')->nullable();
             $table->json('benefits')->nullable();
             $table->json('common_questions')->nullable();
