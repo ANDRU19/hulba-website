@@ -4,11 +4,11 @@
 	import { ChevronDownIcon } from "@heroicons/vue/solid";
 	import TextArea from "@/Components/TextArea.vue";
 
-
 	const props = defineProps({
 		modelValue: Object,
 	});
-	const data = ref(props.modelValue);
+
+	const emit = defineEmits(["update:modelValue"]);
 
 	const options = computed(() => {
 		return [
@@ -39,6 +39,20 @@
 		];
 	});
 
+	const data = ref(Object.keys(props.modelValue).length ? props.modelValue : {});
+
+	const initData = () => {
+		options.value.forEach((option) => {
+			let key = option.key;
+
+			if (!props.modelValue[key]) {
+				data.value[option.key] = "";
+			}
+		});
+	};
+
+	initData();
+
 	const activeOption = ref(options.value[0]);
 
 	const selectOption = (option) => {
@@ -67,5 +81,6 @@
 			</MenuItems>
 		</transition>
 	</Menu>
-	<TextArea :rows="4" type="text" v-model="data[activeOption.key]" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
+
+	<TextArea :rows="4" type="text" @input="emit('update:modelValue', data)" v-model="data[activeOption.key]" class="flex-1 min-w-0 block w-full px-3 py-2 rounded focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 mt-1 placeholder-[#dedede]" />
 </template>

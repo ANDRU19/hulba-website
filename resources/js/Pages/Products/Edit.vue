@@ -44,14 +44,7 @@
 		welcome_message: "",
 		media: {},
 		about_product: "",
-		full_description: {
-			what_will_you_learn: "test",
-			results_you_can_expect: "test 4",
-			who_is_this_group_for: "",
-			group_rules: "",
-			challenges_you_will_face: "",
-			how_does_interaction_work: "",
-		},
+		full_description: props.product.full_description,
 		additional_descriotion_title: "",
 		additional_descriotion: "",
 		benefits: [

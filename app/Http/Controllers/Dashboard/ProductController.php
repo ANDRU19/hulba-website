@@ -64,6 +64,7 @@ class ProductController extends Controller
                 'category_id' => $product->category_id,
                 'description' => $product->description,
                 'image' => $product->image->name,
+                'full_description' => $product->full_description
             ],
             'categories' => Product::categories(),
             'payment' => $product->payment
@@ -73,7 +74,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $data = $request->validate([
+        $request->validate([
             'title' => 'required',
             //'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'required',
@@ -81,7 +82,11 @@ class ProductController extends Controller
             'benefits' => 'nullable|array'
             ]);
             
-            $product->update($data); 
+        
+
+            $product->fill($request->all());
+
+            $product->save();
 
             if ($request->hasFile('image')) {
                 $product->imageSave($request->file('image'));
