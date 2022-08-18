@@ -77,7 +77,8 @@ class ProductController extends Controller
             'title' => 'required',
             //'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'required',
-            'category_id' => 'required|int'
+            'category_id' => 'required|int',
+            'benefits' => 'nullable|array'
             ]);
             
             $product->update($data); 

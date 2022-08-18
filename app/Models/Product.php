@@ -14,10 +14,27 @@ class Product extends Model
     protected $fillable = [
         'title',
         'category_id',
-        'description'
+        'description',
+        'welcome_message',
+        'about_product',
+        'first_description',
+        'second_description',
+        'additional_descriotion',
+        'benefits',
+        'common_questions',
+        'include_join_group_info',
+        'include_charge_recurring_next_month_info'
     ];
 
     protected $appends = ['category'];
+
+    protected $casts = [
+        'first_description' => 'array',
+        'second_description' => 'array',
+        'additional_descriotion' => 'array',
+        'benefits' => 'array',
+        'common_questions' => 'array'
+    ];
 
     public static function categories()
     { 
