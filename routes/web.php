@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthPhoneController;
+use App\Http\Controllers\CustomerBussinessDetailsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -31,12 +32,18 @@ Route::middleware('guest')->group(function () {
 Route::view('/', 'frontend.home');
 
 Route::middleware('auth')->group(function () {
+    
     /* Profile routes */
     Route::withoutMiddleware([VerifyProfileCustomer::class])->group(function () {
         Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
         Route::post('profile/verification', [ProfileController::class, 'verification'])->name('profile.verification');
     });
     Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
+    
+    /* Customer bussiness details */
+    Route::get('details', [CustomerBussinessDetailsController::class, 'create'])->name('customer.bussiness.details.create');
+    Route::post('details', [CustomerBussinessDetailsController::class, 'store'])->name('customer.bussiness.details.store');
+    
 
     Route::post('logout', [AuthPhoneController::class, 'destroy'])->name('logout');
     Route::get('payments', [PaymentController::class, 'index'])->name('payments');
