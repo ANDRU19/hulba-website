@@ -13,6 +13,7 @@
 	import DynamicTextAreaField from "@/Pages/Products/Partials/DynamicTextAreaField.vue";
 	import DynamicFields from "@/Pages/Products/Partials/DynamicFields.vue";
 	import HeaderMenu from "@/Pages/Products/Partials/HeaderMenu.vue";
+	import VerificationMessage from "@/Pages/Products/Partials/VerificationMessage.vue";
 
 	const props = defineProps({
 		product: Object,
@@ -116,6 +117,8 @@
 			</div>
 
 			<HeaderMenu></HeaderMenu>
+			
+			<VerificationMessage></VerificationMessage>
 
 			<div class="mx-auto grid grid-cols-6" id="container">
 				<div class="col-span-1 relative">
