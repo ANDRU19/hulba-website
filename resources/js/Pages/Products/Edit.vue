@@ -45,7 +45,7 @@
 		media: {},
 		about_product: "",
 		full_description: props.product.full_description,
-		additional_descriotion: [
+		additional_description: [
 			{
 				title: "",
 				descriotion: "",
