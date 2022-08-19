@@ -37,4 +37,10 @@ class ProfileController extends Controller
         return redirect('/dashboard');
     }
 
+    public function verification()
+    {
+        $customer = Customer::find(auth()->user()->id);
+        $customer->setVerifiedProfile();
+    }
+
 }

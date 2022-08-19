@@ -12,6 +12,7 @@
 	import MediaField from "@/Pages/Products/Partials/MediaField.vue";
 	import DynamicTextAreaField from "@/Pages/Products/Partials/DynamicTextAreaField.vue";
 	import DynamicFields from "@/Pages/Products/Partials/DynamicFields.vue";
+	import HeaderMenu from "@/Pages/Products/Partials/HeaderMenu.vue";
 
 	const props = defineProps({
 		product: Object,
@@ -113,6 +114,8 @@
 				<h3 class="text-2xl">Edit your product</h3>
 				<div class="mt-2 font-light text-md">Edit your paid product and charge your members for entry.</div>
 			</div>
+
+			<HeaderMenu></HeaderMenu>
 
 			<div class="mx-auto grid grid-cols-6" id="container">
 				<div class="col-span-1 relative">

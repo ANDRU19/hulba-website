@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('verification_code')->unique()->nullable();
             $table->timestamp('phone_verified_at')->nullable();
+            $table->timestamp('profile_verified_at')->nullable();
             $table->string('email')->nullable();
             $table->string('photo')->nullable();
             $table->json('social')->nullable();

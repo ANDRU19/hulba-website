@@ -17,6 +17,7 @@ class Customer extends Authenticatable
         'phone',
         'verification_code',
         'phone_verified_at',
+        'profile_verified_at',
         'email',
         'photo',
         'social',
@@ -41,6 +42,15 @@ class Customer extends Authenticatable
             return array_merge($this->social,$social);
         }
         return $this->social;
+    }
+
+    public function setVerifiedProfile()
+    {
+        $this->forceFill([
+            'profile_verified_at' => $this->freshTimestamp()
+        ]);
+
+        return $this->save();
     }
 
        

@@ -18,7 +18,7 @@ class Product extends Model
         'welcome_message',
         'about_product',
         'full_description',
-        'additional_descriotion',
+        'additional_description',
         'benefits',
         'common_questions',
         'include_join_group_info',
