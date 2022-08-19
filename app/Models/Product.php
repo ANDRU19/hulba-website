@@ -29,7 +29,7 @@ class Product extends Model
 
     protected $casts = [
         'full_description' => 'array',
-        'additional_descriotion' => 'array',
+        'additional_description' => 'array',
         'benefits' => 'array',
         'common_questions' => 'array'
     ];
