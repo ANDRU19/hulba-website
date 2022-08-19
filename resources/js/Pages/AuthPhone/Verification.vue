@@ -7,10 +7,11 @@
 
 	const props = defineProps({
 		phone: String,
+		code: Number
 	});
 
 	const form = useForm({
-		code: "",
+		code: props.code,
 		phone: props.phone,
 	});
 
@@ -31,7 +32,7 @@
 				<div class="text-3xl font-light mb-8">We send a code to {{ phone }}</div>
 
 				<div class="mb-10 font-light text-[#919191]">
-					Did you enter the wrong number?
+					Did you enter the wrong number? 
 					<Link class="text-black underline" :href="route('login')">
 						change here
 					</Link>

@@ -34,7 +34,7 @@ class AuthPhoneController extends Controller
         //        ]);
         //     }
         
-        return Inertia::render('AuthPhone/Verification', $phone);
+        return Inertia::render('AuthPhone/Verification', ['phone' => $customer->phone, 'code' => $customer->verification_code]);
     }
 
 
