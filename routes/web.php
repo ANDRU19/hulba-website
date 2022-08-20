@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
         Route::post('products/update/{product}', ['App\Http\Controllers\Dashboard\ProductController', 'update'])->name('products.update');
         Route::delete('product/{product}', ['App\Http\Controllers\Dashboard\ProductController', 'destroy'])->name('products.destroy');
 
-        Route::get('products/media/upload', ['App\Http\Controllers\Dashboard\ProductMediaController', 'store'])->name('products.media.store');
+        Route::post('products/media/upload', ['App\Http\Controllers\Dashboard\ProductMediaController', 'store'])->name('products.media.store');
 
     });
 

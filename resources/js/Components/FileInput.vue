@@ -128,11 +128,6 @@
 			<div v-if="uploadedFile.url && !rejectedFile && !processing">
 				<div class="relative">
 					<img @click="inputRef.click()" class="cursor-pointer delay-100 object-cover rounded-md shadow-md" :src="uploadedFile.url" />
-					<div class="absolute right-2.5 top-2.5">
-						<a @click="confirmRemoval()" class="cursor-pointer flex items-center rounded-full bg-gray-50 z-50 px-1 py-1 shadow-sm">
-							<span class="font-light text-md material-symbols-outlined text-red-300 hover:text-red-500 cursor-pointer"> delete </span>
-						</a>
-					</div>
 				</div>
 			</div>
 
