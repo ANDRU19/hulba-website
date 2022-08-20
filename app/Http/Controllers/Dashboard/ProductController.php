@@ -36,8 +36,8 @@ class ProductController extends Controller
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'required',
             'category_id' => 'required|int',
-            'plan' => 'required', 
-            'price' => 'required'
+            'payment.plan' => 'required', 
+            'payment.price' => 'required'
         ]);
 
         $product = Product::create($valid_product);
@@ -82,8 +82,8 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required|int',
             'benefits' => 'nullable|array',
-            'plan' => 'required', 
-            'price' => 'required'
+            'payment.plan' => 'required', 
+            'payment.price' => 'required'
             ]);
             
         
