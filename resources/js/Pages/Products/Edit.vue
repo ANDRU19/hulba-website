@@ -118,7 +118,7 @@
 
 			<HeaderMenu></HeaderMenu>
 
-			<VerificationMessage v-show="$page.props.auth.user.profile_verified_at"></VerificationMessage>
+			<VerificationMessage v-show="$page.props.auth.user.profile_verified_at == null"></VerificationMessage>
 
 			<div class="mx-auto grid grid-cols-6" id="container">
 				<div class="col-span-1 relative">
