@@ -37,7 +37,7 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required|int',
             'payment.plan' => 'required', 
-            'payment.price' => 'required'
+            'payment.price' => 'required|numeric|min:1'
         ]);
 
         $product = Product::create($valid_product);
@@ -83,7 +83,7 @@ class ProductController extends Controller
             'category_id' => 'required|int',
             'benefits' => 'nullable|array',
             'payment.plan' => 'required', 
-            'payment.price' => 'required'
+            'payment.price' => 'required|numeric|min:1'
             ]);
             
         

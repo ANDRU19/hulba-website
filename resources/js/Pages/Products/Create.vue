@@ -120,7 +120,8 @@
 							</div>
 
 							<PaymentType :data="payment_type"></PaymentType>
-							<InputError :message="form.errors.payment?.plan"></InputError>
+							<InputError :message="form.errors['payment.plan']"></InputError>
+							<InputError :message="form.errors['payment.price']"></InputError>
 
 							<!-- submit -->
 							<div class="flex items-center mt-4">
