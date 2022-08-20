@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\CustomerBussinessDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -33,6 +34,7 @@ class CustomerBussinessDetailsController extends Controller
         ]);
         
         CustomerBussinessDetails::create($details);
+        Customer::setVerifiedProfile();
 
         return  Redirect::route('products.list');
 
