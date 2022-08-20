@@ -56,14 +56,18 @@ import { Link } from "@inertiajs/inertia-vue3";
         </MenuItems>
       </transition>
     </Menu>
-    <div class="ml-3 relative">
-      <a class="text-sm border border-gray-200 rounded py-2 px-6 mx-2" href="#"
+    <div class="flex ml-3">
+      <a class="text-sm border border-gray-200 rounded py-2 px-6" href="#"
         >Visualizar produto</a
       >
-      <a class="text-sm border border-gray-200 rounded py-2 px-3 mx-2" href="#"
+      </div>
+      <div class="flex ml-3">
+      <a class="text-sm border border-gray-200 rounded px-3" href="#"
         ><span class="material-symbols-outlined">visibility</span></a
       >
-      <a class="text-sm border border-gray-200 rounded py-2 px-3 mx-2" href="#"
+      </div>
+      <div class="flex ml-3">
+      <a class="text-sm border border-gray-200 rounded px-3" href="#"
         ><span class="material-symbols-outlined">delete</span></a
       >
     </div>
