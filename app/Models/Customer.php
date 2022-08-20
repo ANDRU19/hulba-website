@@ -44,13 +44,14 @@ class Customer extends Authenticatable
         return $this->social;
     }
 
-    public function setVerifiedProfile()
+    public static function setVerifiedProfile()
     {
-        $this->forceFill([
-            'profile_verified_at' => $this->freshTimestamp()
+        $instance = (new static)::find(auth()->user()->id);
+        $instance->forceFill([
+            'profile_verified_at' => $instance->freshTimestamp()
         ]);
 
-        return $this->save();
+        return $instance->save();
     }
 
        
