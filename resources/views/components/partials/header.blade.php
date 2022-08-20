@@ -24,8 +24,8 @@
           </ul>
         </div>
         <div class="right-btn-block">
-          <button onclick="location.href='{{ route('login') }}';" class="btn-menu btn-bg-none mr-24 d-none d-lg-block">Já sou membro/Log in </button>
-          <button onclick="location.href='{{ route('login') }}';" class="btn-menu btn-bg-black">Comece agora/Register</button>
+          <button onclick="location.href='{{ route('login') }}';" class="btn-menu btn-bg-none mr-24 d-none d-lg-block">Já sou membro </button>
+          <button onclick="location.href='{{ route('login') }}';" class="btn-menu btn-bg-black">Comece agora</button>
         </div>
       </div>
       <div class="gap-8"></div>
