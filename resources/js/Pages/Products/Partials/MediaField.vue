@@ -10,7 +10,7 @@
 
 	const data = ref({
 		type: "",
-		url: "",
+		file: {},
 	});
 
 	const modalOpened = ref(false);
@@ -31,7 +31,7 @@
 			</div>
 
 			<template v-if="data.type == 'image'">
-				<FileInput class="mt-2" v-model="data.url"></FileInput>
+				<FileInput :upload-url="route('products.media.store')" class="mt-2" v-model="data.file"></FileInput>
 			</template>
 			<template v-if="data.type == 'video'"> </template>
 			<template v-if="data.type == 'youtube'">

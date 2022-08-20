@@ -2,7 +2,6 @@
 	import { computed, ref } from "vue";
 	import { useDropzone } from "vue3-dropzone";
 	import { ExclamationCircleIcon } from "@heroicons/vue/outline";
-	import { useForm } from "@inertiajs/inertia-vue3";
 
 	const props = defineProps({
 		modelValue: {
@@ -31,7 +30,6 @@
 	const uploadedFile = ref(props.modelValue ?? {});
 	const rejectedFile = ref("");
 	const processing = ref(false);
-	const removing = ref(false);
 	const errorMessage = ref("");
 
 	const maxSizeInBytes = computed(() => {
@@ -80,26 +78,10 @@
 			});
 	};
 
-	const confirmRemoval = () => {
-		removing.value = true;
-	};
 
-	const deleteForm = useForm({
-		file: {},
-	});
 
-	const deleteFile = () => {
-		deleteForm.file = uploadedFile.value;
-		deleteForm.delete(props.deleteUrl, {
-			preserveScroll: true,
-			onSuccess: () => emit("onDelete", uploadedFile.value),
-			onFinish: () => {
-				uploadedFile.value = {};
-				emit("update:modelValue", uploadedFile.value);
-				removing.value = false;
-			},
-		});
-	};
+
+
 
 	const { getRootProps, getInputProps, inputRef, ...rest } = useDropzone({ onDropAccepted, onDropRejected, maxSize: maxSizeInBytes.value, maxFiles: 1, accept: props.accept });
 </script>
