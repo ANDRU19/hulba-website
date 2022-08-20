@@ -225,7 +225,7 @@
 							</div>
 							<div class="w-full">
 								<MediaField v-model="form.media"></MediaField>
-								{{form.media}}
+								
 							</div>
 						</div>
 
