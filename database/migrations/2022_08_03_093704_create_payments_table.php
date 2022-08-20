@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('plan');
             $table->decimal('price', 9, 2);
-            $table->string('monthly');
-            $table->string('days');
+            $table->string('monthly')->nullable();
+            $table->string('days')->nullable();
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->timestamps();
