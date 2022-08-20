@@ -37,8 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::withoutMiddleware([VerifyProfileCustomer::class])->group(function () {
         Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
         Route::post('profile/verification', [ProfileController::class, 'verification'])->name('profile.verification');
+        Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
     });
-    Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
+    
     
     /* Customer bussiness details */
     Route::get('details', [CustomerBussinessDetailsController::class, 'create'])->name('customer.bussiness.details.create');
